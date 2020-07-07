@@ -1,6 +1,9 @@
 package elearningmvc.spring.springjdbc.localite.dao.impl;
 
+import java.util.List;
+
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowCallbackHandler;
 
 import elearningmvc.spring.springjdbc.localite.dao.LocaliteDao;
 import elearningmvc.spring.springjdbc.localite.dto.Localite;
@@ -44,6 +47,16 @@ public class LocaliteDaoImpl implements LocaliteDao
 		return localite;
 	}
 	
+	@Override
+	public List<Localite> read() 
+	{
+		String sql = "select * from localite";
+		LocaliteRowMapper rowmapper = new LocaliteRowMapper();
+		List<Localite> result = jdbcTemplate.query(sql, rowmapper);
+		return result;
+	}
+
+	
 	/*****************************Getter & Setter********************************************/
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
@@ -51,6 +64,7 @@ public class LocaliteDaoImpl implements LocaliteDao
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
+
 
 
 

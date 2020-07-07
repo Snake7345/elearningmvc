@@ -1,5 +1,7 @@
 package elearningmvc.spring.springjdbc.localite.test;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import elearningmvc.spring.springjdbc.localite.dao.LocaliteDao;
@@ -18,7 +20,8 @@ public class Test
 		//int result = dao.create(localite);
 		//int result = dao.update(localite);
 		//int result = dao.delete(1);
-		Localite localite = dao.read(2);
-		System.out.println("localite record:" + localite);
+		//Localite localite = dao.read(2);
+		List<Localite> result = dao.read();
+		System.out.println("localite record:" + result);
 	}
 }
