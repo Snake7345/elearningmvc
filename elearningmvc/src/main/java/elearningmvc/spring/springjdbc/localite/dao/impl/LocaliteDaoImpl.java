@@ -27,6 +27,14 @@ public class LocaliteDaoImpl implements LocaliteDao
 		return result;
 	}
 	
+	@Override
+	public int delete(int id) 
+	{
+		String sql = "delete from localite where idLocalite=?";
+		int result = jdbcTemplate.update(sql, id);
+		return result;
+	}
+	
 	/*****************************Getter & Setter********************************************/
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
@@ -34,6 +42,8 @@ public class LocaliteDaoImpl implements LocaliteDao
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
+
+
 
 
 	

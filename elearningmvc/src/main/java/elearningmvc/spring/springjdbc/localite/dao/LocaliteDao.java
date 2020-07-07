@@ -6,5 +6,6 @@ public interface LocaliteDao
 {
 	int create(Localite localite);
 	int update(Localite localite);
+	int delete(int id);
 	
 }

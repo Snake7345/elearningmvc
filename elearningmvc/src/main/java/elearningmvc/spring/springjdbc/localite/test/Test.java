@@ -16,7 +16,8 @@ public class Test
 		localite.setVille("Jumet");
 		localite.setCp(6040);
 		//int result = dao.create(localite);
-		int result = dao.update(localite);
-		System.out.println("Number of records updated are:" + result);
+		//int result = dao.update(localite);
+		int result = dao.delete(1);
+		System.out.println("Number of records deleted are:" + result);
 	}
 }
