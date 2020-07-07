@@ -8,4 +8,6 @@ public interface LocaliteDao
 	int update(Localite localite);
 	int delete(int id);
 	
+	Localite read(int id);
+	
 }

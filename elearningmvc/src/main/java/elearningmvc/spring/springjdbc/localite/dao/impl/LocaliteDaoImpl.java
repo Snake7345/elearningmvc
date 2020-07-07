@@ -4,6 +4,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import elearningmvc.spring.springjdbc.localite.dao.LocaliteDao;
 import elearningmvc.spring.springjdbc.localite.dto.Localite;
+import elearningmvc.spring.springjdbc.localite.rowmappper.LocaliteRowMapper;
 
 public class LocaliteDaoImpl implements LocaliteDao 
 {
@@ -35,6 +36,14 @@ public class LocaliteDaoImpl implements LocaliteDao
 		return result;
 	}
 	
+	@Override
+	public Localite read(int id) {
+		String sql = "select * from localite where idLocalite=?";
+		LocaliteRowMapper rowmapper = new LocaliteRowMapper();
+		Localite localite = jdbcTemplate.queryForObject(sql, rowmapper,id);
+		return localite;
+	}
+	
 	/*****************************Getter & Setter********************************************/
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
@@ -42,6 +51,8 @@ public class LocaliteDaoImpl implements LocaliteDao
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
+
+
 
 
 

@@ -11,13 +11,14 @@ public class Test
 	{
 		ApplicationContext context = new ClassPathXmlApplicationContext("elearningmvc/spring/springjdbc/localite/test/config.xml");
 		LocaliteDao dao= (LocaliteDao) context.getBean("localiteDao");
-		Localite localite = new Localite();
+		/*Localite localite = new Localite();
 		localite.setIdLocalite(2);
 		localite.setVille("Jumet");
-		localite.setCp(6040);
+		localite.setCp(6040);*/
 		//int result = dao.create(localite);
 		//int result = dao.update(localite);
-		int result = dao.delete(1);
-		System.out.println("Number of records deleted are:" + result);
+		//int result = dao.delete(1);
+		Localite localite = dao.read(2);
+		System.out.println("localite record:" + localite);
 	}
 }
