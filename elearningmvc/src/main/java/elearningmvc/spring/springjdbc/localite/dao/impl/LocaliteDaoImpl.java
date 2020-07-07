@@ -2,16 +2,18 @@ package elearningmvc.spring.springjdbc.localite.dao.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowCallbackHandler;
+import org.springframework.stereotype.Component;
 
 import elearningmvc.spring.springjdbc.localite.dao.LocaliteDao;
 import elearningmvc.spring.springjdbc.localite.dto.Localite;
 import elearningmvc.spring.springjdbc.localite.rowmappper.LocaliteRowMapper;
 
+@Component("localiteDao")
 public class LocaliteDaoImpl implements LocaliteDao 
 {
-
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
 	/****************************CRUD*******************************************************/
