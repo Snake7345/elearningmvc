@@ -13,9 +13,10 @@ public class Test
 		LocaliteDao dao= (LocaliteDao) context.getBean("localiteDao");
 		Localite localite = new Localite();
 		localite.setIdLocalite(2);
-		localite.setVille("Bruxelles");
-		localite.setCp(1000);
-		int result = dao.create(localite);
-		System.out.println("Number of records inserted are:" + result);
+		localite.setVille("Jumet");
+		localite.setCp(6040);
+		//int result = dao.create(localite);
+		int result = dao.update(localite);
+		System.out.println("Number of records updated are:" + result);
 	}
 }
