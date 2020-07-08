@@ -1,5 +1,6 @@
 package elearningmvc.spring.springhibernate.entity;
 
-public class Invitation {
-
+public class Invitation 
+{
+	
 }

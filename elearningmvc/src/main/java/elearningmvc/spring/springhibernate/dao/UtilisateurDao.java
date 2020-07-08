@@ -1,5 +1,18 @@
 package elearningmvc.spring.springhibernate.dao;
 
-public interface UtilisateurDao {
+import java.util.List;
 
+import elearningmvc.spring.springhibernate.entity.Utilisateur;
+
+public interface UtilisateurDao 
+{
+	int create(Utilisateur utilisateur);
+	
+	void update(Utilisateur utilisateur);
+	
+	void delete(Utilisateur utilisateur);
+	
+	Utilisateur find(int id);
+	
+	List<Utilisateur> findAll();
 }

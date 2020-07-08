@@ -1,5 +1,18 @@
 package elearningmvc.spring.springhibernate.dao;
 
-public interface CategoriemoduleDao {
+import java.util.List;
 
+import elearningmvc.spring.springhibernate.entity.Categoriemodule;
+
+public interface CategoriemoduleDao 
+{
+	int create(Categoriemodule categoriemodule);
+	
+	void update(Categoriemodule categoriemodule);
+	
+	void delete(Categoriemodule categoriemodule);
+	
+	Categoriemodule find(int id);
+	
+	List<Categoriemodule> findAll();
 }
