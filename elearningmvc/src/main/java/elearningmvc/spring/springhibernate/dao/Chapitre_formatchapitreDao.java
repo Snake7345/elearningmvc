@@ -6,14 +6,15 @@ import elearningmvc.spring.springhibernate.model.Chapitre_formatchapitre;
 
 public interface Chapitre_formatchapitreDao 
 {
-	int create(Chapitre_formatchapitre chapitre_formatchapitre);
 	
-	void update(Chapitre_formatchapitre chapitre_formatchapitre);
+	public void saveChapitre_formatchapitre(Chapitre_formatchapitre chapitre_formatchapitre);
 	
-	void delete(Chapitre_formatchapitre chapitre_formatchapitre);
+	public void updateChapitre_formatchapitre(Chapitre_formatchapitre chapitre_formatchapitre);
 	
-	Chapitre_formatchapitre find(int id);
+	public List<Chapitre_formatchapitre> getAllChapitre_formatchapitre();
 	
-	List<Chapitre_formatchapitre> findAll();
+	public Chapitre_formatchapitre getById(int id);
+	
+	public void deleteChapitre_formatchapitre(int id);
 
 }

@@ -6,13 +6,14 @@ import elearningmvc.spring.springhibernate.model.Categoriemodule;
 
 public interface CategoriemoduleDao 
 {
-	int create(Categoriemodule categoriemodule);
 	
-	void update(Categoriemodule categoriemodule);
+	public void saveCategoriemodule(Categoriemodule categoriemodule);
 	
-	void delete(Categoriemodule categoriemodule);
+	public void updateCategoriemodule(Categoriemodule categoriemodule);
 	
-	Categoriemodule find(int id);
+	public List<Categoriemodule> getAllCategoriemodule();
 	
-	List<Categoriemodule> findAll();
+	public Categoriemodule getById(int id);
+	
+	public void deleteCategoriemodule(int id);
 }

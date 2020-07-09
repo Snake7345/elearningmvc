@@ -6,13 +6,14 @@ import elearningmvc.spring.springhibernate.model.Formatchapitre;
 
 public interface FormatchapitreDao 
 {
-	int create(Formatchapitre formatchapitre);
 	
-	void update(Formatchapitre formatchapitre);
+	public void saveFormatchapitre(Formatchapitre formatchapitre);
 	
-	void delete(Formatchapitre formatchapitre);
+	public void updateFormatchapitre(Formatchapitre formatchapitre);
 	
-	Formatchapitre find(int id);
+	public List<Formatchapitre> getAllFormatchapitre();
 	
-	List<Formatchapitre> findAll();
+	public Formatchapitre getById(int id);
+	
+	public void deleteFormatchapitre(int id);
 }

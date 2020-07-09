@@ -6,13 +6,14 @@ import elearningmvc.spring.springhibernate.model.Chapitreappris;
 
 public interface ChapitreapprisDao 
 {
-	int create(Chapitreappris chapitreappris);
 	
-	void update(Chapitreappris chapitreappris);
+	public void saveChapitreappris(Chapitreappris chapitreappris);
 	
-	void delete(Chapitreappris chapitreappris);
+	public void updateChapitreappris(Chapitreappris chapitreappris);
 	
-	Chapitreappris find(int id);
+	public List<Chapitreappris> getAllChapitreappris();
 	
-	List<Chapitreappris> findAll();
+	public Chapitreappris getById(int id);
+	
+	public void deleteChapitreappris(int id);
 }

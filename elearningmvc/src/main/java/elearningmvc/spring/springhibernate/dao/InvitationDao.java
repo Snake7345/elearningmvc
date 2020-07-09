@@ -6,13 +6,14 @@ import elearningmvc.spring.springhibernate.model.Invitation;
 
 public interface InvitationDao 
 {
-	int create(Invitation invitation);
 	
-	void update(Invitation invitation);
+	public void saveInvitation(Invitation invitation);
 	
-	void delete(Invitation invitation);
+	public void updateInvitation(Invitation invitation);
 	
-	Invitation find(int id);
+	public List<Invitation> getAllInvitation();
 	
-	List<Invitation> findAll();
+	public Invitation getById(int id);
+	
+	public void deleteInvitation(int id);
 }

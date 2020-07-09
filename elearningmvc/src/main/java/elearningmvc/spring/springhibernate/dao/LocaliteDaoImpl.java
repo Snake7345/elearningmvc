@@ -2,53 +2,67 @@ package elearningmvc.spring.springhibernate.dao;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate5.*;
-import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
+import org.hibernate.query.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import elearningmvc.spring.springhibernate.model.Localite;
 
-@Component("LocaliteDao")
+
 public class LocaliteDaoImpl implements LocaliteDao 
 {
-	@Autowired
-	HibernateTemplate hibernateTemplate;
 	
-	@Override
-	@Transactional
-	public int create(Localite localite) 
-	{
-		Integer result = (Integer) hibernateTemplate.save(localite);
-		return result;
+	private SessionFactory sessionFactory;
+	 
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
 	}
-
-	@Override
-	@Transactional
-	public void update(Localite localite) 
-	{
-		hibernateTemplate.update(localite);
+ 
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
-
-	@Override
-	@Transactional
-	public void delete(Localite localite) 
-	{
-		hibernateTemplate.delete(localite);	
+ 
+	public void saveLocalite(Localite localite) {
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		session.save(localite);
+		session.getTransaction().commit();
+		session.close();	
 	}
-
-	@Override
-	public Localite find(int id) 
-	{
-		Localite localite = hibernateTemplate.get(Localite.class, id);
+ 
+	public void updateLocalite(Localite localite) {
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		session.update(localite);
+		session.getTransaction().commit();
+		session.close();
+		
+	}
+ 
+	public List<Localite> getAllLocalite() {
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		Query query = session.createQuery("From Localite");
+		@SuppressWarnings("unchecked")
+		List<Localite> localiteList = query.list();
+		return localiteList;
+	}
+ 
+	public Localite getById(int id) {
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		Localite localite = (Localite) session.load(Localite.class, new Integer(id));
+		session.getTransaction().commit();
 		return localite;
 	}
-
-	@Override
-	public List<Localite> findAll() 
-	{
-		List<Localite> localite = hibernateTemplate.loadAll(Localite.class);
-		return localite;
+ 
+	public void deleteLocalite(int id) {
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		Localite localite = (Localite)session.get(Localite.class, new Integer(id));
+		session.delete(localite);
+		session.getTransaction().commit();
+		session.close();
 	}
-
+	
 }

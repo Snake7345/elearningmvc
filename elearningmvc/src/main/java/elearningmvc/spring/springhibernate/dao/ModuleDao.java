@@ -6,13 +6,14 @@ import elearningmvc.spring.springhibernate.model.Module;
 
 public interface ModuleDao 
 {
-	int create(Module module);
 	
-	void update(Module module);
+	public void saveModule(Module module);
 	
-	void delete(Module module);
+	public void updateModule(Module module);
 	
-	Module find(int id);
+	public List<Module> getAllModule();
 	
-	List<Module> findAll();
+	public Module getById(int id);
+	
+	public void deleteModule(int id);
 }

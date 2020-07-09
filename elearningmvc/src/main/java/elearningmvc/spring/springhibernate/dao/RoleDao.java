@@ -6,13 +6,13 @@ import elearningmvc.spring.springhibernate.model.Role;
 
 public interface RoleDao 
 {
-	int create(Role role);
+	public void saveRole(Role role);
 	
-	void update(Role role);
+	public void updateRole(Role role);
 	
-	void delete(Role role);
+	public List<Role> getAllRole();
 	
-	Role find(int id);
+	public Role getById(int id);
 	
-	List<Role> findAll();
+	public void deleteRole(int id);
 }

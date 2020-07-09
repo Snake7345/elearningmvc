@@ -2,52 +2,63 @@ package elearningmvc.spring.springhibernate.dao;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate5.HibernateTemplate;
-import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
-
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import elearningmvc.spring.springhibernate.model.Chapitre_formatchapitre;
 
-@Component("Chapitre_formatchapitreDao")
 public class Chapitre_formatchapitreDaoImpl implements Chapitre_formatchapitreDao
 {
-	@Autowired
-	HibernateTemplate hibernateTemplate;
-	
-	@Override
-	@Transactional
-	public int create(Chapitre_formatchapitre chapitre_formatchapitre) 
-	{
-		Integer result = (Integer) hibernateTemplate.save(chapitre_formatchapitre);
-		return result;
+	private SessionFactory sessionFactory;
+	 
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
 	}
-
-	@Override
-	@Transactional
-	public void update(Chapitre_formatchapitre chapitre_formatchapitre) 
-	{
-		hibernateTemplate.update(chapitre_formatchapitre);
+ 
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
-
-	@Override
-	@Transactional
-	public void delete(Chapitre_formatchapitre chapitre_formatchapitre) 
-	{
-		hibernateTemplate.delete(chapitre_formatchapitre);	
+ 
+	public void saveChapitre_formatchapitre(Chapitre_formatchapitre chapitre_formatchapitre) {
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		session.save(chapitre_formatchapitre);
+		session.getTransaction().commit();
+		session.close();	
 	}
-
-	@Override
-	public Chapitre_formatchapitre find(int id) 
-	{
-		Chapitre_formatchapitre chapitre_formatchapitre = hibernateTemplate.get(Chapitre_formatchapitre.class, id);
+ 
+	public void updateChapitre_formatchapitre(Chapitre_formatchapitre chapitre_formatchapitre) {
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		session.update(chapitre_formatchapitre);
+		session.getTransaction().commit();
+		session.close();
+		
+	}
+ 
+	public List<Chapitre_formatchapitre> getAllChapitre_formatchapitre() {
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		Query query = session.createQuery("From Chapitre_formatchapitre");
+		@SuppressWarnings("unchecked")
+		List<Chapitre_formatchapitre> chapitre_formatchapitreList = query.list();
+		return chapitre_formatchapitreList;
+	}
+ 
+	public Chapitre_formatchapitre getById(int id) {
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		Chapitre_formatchapitre chapitre_formatchapitre = (Chapitre_formatchapitre) session.load(Chapitre_formatchapitre.class, new Integer(id));
+		session.getTransaction().commit();
 		return chapitre_formatchapitre;
 	}
-
-	@Override
-	public List<Chapitre_formatchapitre> findAll() 
-	{
-		List<Chapitre_formatchapitre> chapitre_formatchapitre = hibernateTemplate.loadAll(Chapitre_formatchapitre.class);
-		return chapitre_formatchapitre;
+ 
+	public void deleteChapitre_formatchapitre(int id) {
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		Chapitre_formatchapitre chapitre_formatchapitre = (Chapitre_formatchapitre)session.get(Chapitre_formatchapitre.class, new Integer(id));
+		session.delete(chapitre_formatchapitre);
+		session.getTransaction().commit();
+		session.close();
 	}
 }

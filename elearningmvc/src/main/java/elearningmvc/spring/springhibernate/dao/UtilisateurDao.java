@@ -6,13 +6,14 @@ import elearningmvc.spring.springhibernate.model.Utilisateur;
 
 public interface UtilisateurDao 
 {
-	int create(Utilisateur utilisateur);
+	public void saveUtilisateur(Utilisateur utilisateur);
 	
-	void update(Utilisateur utilisateur);
+	public void updateUtilisateur(Utilisateur utilisateur);
 	
-	void delete(Utilisateur utilisateur);
+	public List<Utilisateur> getAllUtilisateur();
 	
-	Utilisateur find(int id);
+	public Utilisateur getById(int id);
 	
-	List<Utilisateur> findAll();
+	public void deleteUtilisateur(int id);
+	
 }

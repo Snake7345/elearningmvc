@@ -6,13 +6,13 @@ import elearningmvc.spring.springhibernate.model.Localite;
 
 public interface LocaliteDao 
 {
-	int create(Localite localite);
+	public void saveLocalite(Localite localite);
 	
-	void update(Localite localite);
+	public void updateLocalite(Localite localite);
 	
-	void delete(Localite localite);
+	public List<Localite> getAllLocalite();
 	
-	Localite find(int id);
+	public Localite getById(int id);
 	
-	List<Localite> findAll();
+	public void deleteLocalite(int id);
 }

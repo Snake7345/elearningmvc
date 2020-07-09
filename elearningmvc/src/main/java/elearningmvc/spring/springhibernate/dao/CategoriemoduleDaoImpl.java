@@ -2,52 +2,65 @@ package elearningmvc.spring.springhibernate.dao;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate5.HibernateTemplate;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
-
 import elearningmvc.spring.springhibernate.model.Categoriemodule;
 
-@Component("CategoriemoduleDao")
+
 public class CategoriemoduleDaoImpl implements CategoriemoduleDao
 {
-	@Autowired
-	HibernateTemplate hibernateTemplate;
-	
-	@Override
-	@Transactional
-	public int create(Categoriemodule categoriemodule) 
-	{
-		Integer result = (Integer) hibernateTemplate.save(categoriemodule);
-		return result;
+	private SessionFactory sessionFactory;
+	 
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
 	}
-
-	@Override
-	@Transactional
-	public void update(Categoriemodule categoriemodule) 
-	{
-		hibernateTemplate.update(categoriemodule);
+ 
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
-
-	@Override
-	@Transactional
-	public void delete(Categoriemodule categoriemodule) 
-	{
-		hibernateTemplate.delete(categoriemodule);	
+ 
+	public void saveCategoriemodule(Categoriemodule categoriemodule) {
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		session.save(categoriemodule);
+		session.getTransaction().commit();
+		session.close();	
 	}
-
-	@Override
-	public Categoriemodule find(int id) 
-	{
-		Categoriemodule categoriemodule = hibernateTemplate.get(Categoriemodule.class, id);
+ 
+	public void updateCategoriemodule(Categoriemodule categoriemodule) {
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		session.update(categoriemodule);
+		session.getTransaction().commit();
+		session.close();
+		
+	}
+ 
+	public List<Categoriemodule> getAllCategoriemodule() {
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		Query query = session.createQuery("From Categoriemodule");
+		@SuppressWarnings("unchecked")
+		List<Categoriemodule> categoriemoduleList = query.list();
+		return categoriemoduleList;
+	}
+ 
+	public Categoriemodule getById(int id) {
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		Categoriemodule categoriemodule = (Categoriemodule) session.load(Categoriemodule.class, new Integer(id));
+		session.getTransaction().commit();
 		return categoriemodule;
 	}
-
-	@Override
-	public List<Categoriemodule> findAll() 
-	{
-		List<Categoriemodule> categoriemodule = hibernateTemplate.loadAll(Categoriemodule.class);
-		return categoriemodule;
+ 
+	public void deleteCategoriemodule(int id) {
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		Categoriemodule categoriemodule = (Categoriemodule)session.get(Categoriemodule.class, new Integer(id));
+		session.delete(categoriemodule);
+		session.getTransaction().commit();
+		session.close();
 	}
 }
