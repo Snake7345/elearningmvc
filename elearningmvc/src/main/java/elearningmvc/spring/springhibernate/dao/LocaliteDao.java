@@ -2,7 +2,7 @@ package elearningmvc.spring.springhibernate.dao;
 
 import java.util.List;
 
-import elearningmvc.spring.springhibernate.entity.Localite;
+import elearningmvc.spring.springhibernate.model.Localite;
 
 public interface LocaliteDao 
 {

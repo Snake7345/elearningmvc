@@ -2,7 +2,7 @@ package elearningmvc.spring.springhibernate.dao;
 
 import java.util.List;
 
-import elearningmvc.spring.springhibernate.entity.Module;
+import elearningmvc.spring.springhibernate.model.Module;
 
 public interface ModuleDao 
 {

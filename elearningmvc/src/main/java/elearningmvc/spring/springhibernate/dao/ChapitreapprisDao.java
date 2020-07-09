@@ -2,7 +2,7 @@ package elearningmvc.spring.springhibernate.dao;
 
 import java.util.List;
 
-import elearningmvc.spring.springhibernate.entity.Chapitreappris;
+import elearningmvc.spring.springhibernate.model.Chapitreappris;
 
 public interface ChapitreapprisDao 
 {
