@@ -2,17 +2,17 @@ package elearningmvc.spring.springhibernate.service;
 
 import java.util.List;
 
-import elearningmvc.spring.springhibernate.model.Localite;
+import elearningmvc.spring.springhibernate.model.Module;
 
 public interface ModuleService 
 {
-	public void saveLocalite(Localite localite);
+	public void saveModule(Module module);
 	
-	public void updateLocalite(Localite localite);
+	public void updateModule(Module module);
 	
-	public List<Localite> getAllLocalite();
+	public List<Module> getAllModule();
 	
-	public Localite getById(int id);
+	public Module getById(int id);
 	
-	public void deleteLocalite(int id);
+	public void deleteModule(int id);
 }
