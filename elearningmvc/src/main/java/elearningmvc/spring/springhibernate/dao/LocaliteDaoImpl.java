@@ -39,11 +39,11 @@ public class LocaliteDaoImpl implements LocaliteDao
 		
 	}
  
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<Localite> getAllLocalite() {
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		Query query = session.createQuery("From Localite");
-		@SuppressWarnings("unchecked")
 		List<Localite> localiteList = query.list();
 		return localiteList;
 	}

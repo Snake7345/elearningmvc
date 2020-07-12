@@ -38,11 +38,11 @@ public class UtilisateurDaoImpl implements UtilisateurDao
 		
 	}
  
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<Utilisateur> getAllUtilisateur() {
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		Query query = session.createQuery("From Utilisateur");
-		@SuppressWarnings("unchecked")
 		List<Utilisateur> utilisateurList = query.list();
 		return utilisateurList;
 	}

@@ -37,11 +37,11 @@ public class ChapitreapprisDaoImpl
 		
 	}
  
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<Chapitreappris> getAllChapitreappris() {
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		Query query = session.createQuery("From Chapitreappris");
-		@SuppressWarnings("unchecked")
 		List<Chapitreappris> chapitreapprisList = query.list();
 		return chapitreapprisList;
 	}

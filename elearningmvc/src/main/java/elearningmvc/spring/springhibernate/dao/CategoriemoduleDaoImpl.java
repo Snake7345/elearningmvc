@@ -5,7 +5,6 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
-import org.springframework.stereotype.Component;
 import elearningmvc.spring.springhibernate.model.Categoriemodule;
 
 
@@ -38,11 +37,11 @@ public class CategoriemoduleDaoImpl implements CategoriemoduleDao
 		
 	}
  
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<Categoriemodule> getAllCategoriemodule() {
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
-		Query query = session.createQuery("From Categoriemodule");
-		@SuppressWarnings("unchecked")
+		Query query = session.createQuery("From Categoriemodule");	
 		List<Categoriemodule> categoriemoduleList = query.list();
 		return categoriemoduleList;
 	}

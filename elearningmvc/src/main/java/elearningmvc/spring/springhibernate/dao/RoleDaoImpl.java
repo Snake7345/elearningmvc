@@ -37,11 +37,11 @@ public class RoleDaoImpl implements RoleDao
 		
 	}
  
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<Role> getAllRole() {
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		Query query = session.createQuery("From Role");
-		@SuppressWarnings("unchecked")
 		List<Role> roleList = query.list();
 		return roleList;
 	}

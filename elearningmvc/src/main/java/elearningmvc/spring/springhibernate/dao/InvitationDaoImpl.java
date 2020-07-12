@@ -37,11 +37,11 @@ public class InvitationDaoImpl implements InvitationDao
 		
 	}
  
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<Invitation> getAllInvitation() {
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		Query query = session.createQuery("From Invitation");
-		@SuppressWarnings("unchecked")
 		List<Invitation> invitationList = query.list();
 		return invitationList;
 	}

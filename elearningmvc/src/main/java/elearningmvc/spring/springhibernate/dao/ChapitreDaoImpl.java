@@ -36,12 +36,12 @@ public class ChapitreDaoImpl implements ChapitreDao
 		session.close();
 		
 	}
- 
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<Chapitre> getAllChapitre() {
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		Query query = session.createQuery("From Chapitre");
-		@SuppressWarnings("unchecked")
 		List<Chapitre> chapitreList = query.list();
 		return chapitreList;
 	}

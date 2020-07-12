@@ -35,12 +35,12 @@ public class Chapitre_formatchapitreDaoImpl implements Chapitre_formatchapitreDa
 		session.close();
 		
 	}
- 
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<Chapitre_formatchapitre> getAllChapitre_formatchapitre() {
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		Query query = session.createQuery("From Chapitre_formatchapitre");
-		@SuppressWarnings("unchecked")
 		List<Chapitre_formatchapitre> chapitre_formatchapitreList = query.list();
 		return chapitre_formatchapitreList;
 	}

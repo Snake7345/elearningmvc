@@ -37,11 +37,11 @@ public class ModuleImpl implements ModuleDao
 		
 	}
  
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<Module> getAllModule() {
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		Query query = session.createQuery("From Module");
-		@SuppressWarnings("unchecked")
 		List<Module> moduleList = query.list();
 		return moduleList;
 	}

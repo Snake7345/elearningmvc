@@ -36,12 +36,12 @@ public class FormatchapitreDaoImpl implements FormatchapitreDao
 		session.close();
 		
 	}
- 
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<Formatchapitre> getAllFormatchapitre() {
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		Query query = session.createQuery("From Formatchapitre");
-		@SuppressWarnings("unchecked")
 		List<Formatchapitre> formatchapitreList = query.list();
 		return formatchapitreList;
 	}
