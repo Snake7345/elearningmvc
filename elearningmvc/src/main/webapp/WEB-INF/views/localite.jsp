@@ -12,23 +12,23 @@
 <body>
  
 <c:url var="addLocalite" value="/localite/add" ></c:url>
-<form:form action="${addLocalite }" commandName="localite">
+<form:form action="${addLocalite}" modelAttribute="localite">
 <table>
 			<tr>
-			<td><form:label path="localiteName">
-						<spring:message text="Localite Name" />
+			<td><form:label path="ville">
+						<spring:message text="ville" />
 					</form:label></td>
 					<td>
-			<form:input path="localiteName"  type="text"/></td>
+			<form:input path="ville"  type="text"/></td>
 			
 			</tr>
 			
 			<tr>
-			<td><form:label path="localiteContact">
-						<spring:message text="Localite Contact" />
+			<td><form:label path="CP">
+						<spring:message text="CP" />
 					</form:label></td>
 					<td>
-			<form:input path="localiteContact" type="text"/></td>
+			<form:input path="CP" type="text"/></td>
 			<td>
 			</tr>
 			
@@ -51,11 +51,11 @@
 		<c:if test="${!empty localiteList}">
 			<c:forEach items="${localiteList}" var="localite">
 			<tr>
-			<td>${localite.id }</td>
-			<td>${localite.localiteName }</td>
-			<td>${localite.localiteContact }</td>
-			<td><a href="<c:url value='/deleteEmployee/${localite.id}' />" >Delete</a></td>
-			<td><a href="<c:url value='/editEmployee/${localite.id}' />" >Edit</a></td>
+			<td>${localite.idLocalite }</td>
+			<td>${localite.ville }</td>
+			<td>${localite.CP }</td>
+			<td><a href="<c:url value='/deleteLocalite/${localite.idLocalite}' />" >Delete</a></td>
+			<td><a href="<c:url value='/editLocalite/${localite.idLocalite}' />" >Edit</a></td>
 			</tr>
 			</c:forEach>
 		</c:if>

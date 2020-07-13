@@ -21,18 +21,18 @@ public class Localite implements Serializable
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="idLocalite")
 	private int idLocalite;
-	@Column(name="cp")
-	private int cp;
+	@Column(name="CP")
+	private int CP;
 	@Column(name="ville")
 	private String ville;
 	//bi-directional many-to-one association to Utilisateur
-	@OneToMany(mappedBy="localite")
-	private List<Utilisateur> utilisateurs;
+	//@OneToMany(mappedBy="localite")
+	//private List<Utilisateur> utilisateurs;
 
 	@Override
 	public String toString() {
-		return "Localite [idLocalite=" + idLocalite + ", cp=" + cp + ", ville=" + ville + ", utilisateurs="
-				+ utilisateurs + "]";
+		return "Localite [idLocalite=" + idLocalite + ", cp=" + CP + ", ville=" + ville + ", utilisateurs="
+				 + "]";
 	}
 
 	/**************************Getter & Setter*******************************************/
@@ -44,12 +44,12 @@ public class Localite implements Serializable
 		this.idLocalite = idLocalite;
 	}
 
-	public int getCp() {
-		return cp;
+	public int getCP() {
+		return CP;
 	}
 
-	public void setCp(int cp) {
-		this.cp = cp;
+	public void setCP(int CP) {
+		this.CP = CP;
 	}
 
 	public String getVille() {
@@ -60,16 +60,16 @@ public class Localite implements Serializable
 		this.ville = ville;
 	}
 	
-	public List<Utilisateur> getUtilisateurs() {
+	/*public List<Utilisateur> getUtilisateurs() {
 		return this.utilisateurs;
 	}
 
 	public void setUtilisateurs(List<Utilisateur> utilisateurs) {
 		this.utilisateurs = utilisateurs;
-	}
+	}*/
 	
 
-	public Utilisateur addUtilisateur(Utilisateur utilisateur) {
+	/*public Utilisateur addUtilisateur(Utilisateur utilisateur) {
 		getUtilisateurs().add(utilisateur);
 		utilisateur.setLocalite(this);
 
@@ -81,7 +81,7 @@ public class Localite implements Serializable
 		utilisateur.setLocalite(null);
 
 		return utilisateur;
-	}
+	}*/
 
 
 

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
  
 import elearningmvc.spring.springhibernate.model.Categoriemodule;
 import elearningmvc.spring.springhibernate.service.CategoriemoduleService;
-@Controller
 public class CategoriemoduleController 
 {
 	

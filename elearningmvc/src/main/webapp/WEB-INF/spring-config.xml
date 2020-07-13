@@ -49,7 +49,7 @@
 	<beans:property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory"/>
 </beans:bean>
  
-<beans:bean id="EmployeeService" class="elearningmvc.spring.springhibernate.service.LocaliteServiceImpl">
+<beans:bean id="localiteService" class="elearningmvc.spring.springhibernate.service.LocaliteServiceImpl">
 	<beans:property name="localiteDao" ref="localiteDao"/>
 </beans:bean>
  
