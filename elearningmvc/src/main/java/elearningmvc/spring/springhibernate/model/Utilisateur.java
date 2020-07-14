@@ -39,12 +39,12 @@ public class Utilisateur implements Serializable {
 	private String profession;
 
 	//bi-directional many-to-one association to Chapitreappri
-	@OneToMany(mappedBy="utilisateur")
+	/*@OneToMany(mappedBy="utilisateur")
 	private List<Chapitreappris> chapitreappris;
 
 	//bi-directional many-to-one association to Invitation
 	@OneToMany(mappedBy="utilisateur")
-	private List<Invitation> invitations;
+	private List<Invitation> invitations;*/
 
 	//bi-directional many-to-one association to Localite
 	@ManyToOne
@@ -58,8 +58,8 @@ public class Utilisateur implements Serializable {
 	public String toString() {
 		return "Utilisateur [idUtilisateur=" + idUtilisateur + ", actif=" + actif + ", adresse=" + adresse + ", email="
 				+ email + ", login=" + login + ", mobile=" + mobile + ", nom=" + nom + ", password=" + password
-				+ ", prenom=" + prenom + ", profession=" + profession + ", chapitreappris=" + chapitreappris
-				+ ", invitations=" + invitations + ", localite=" + localite + ", role=" + role + "]";
+				+ ", prenom=" + prenom + ", profession=" + profession + ", chapitreappris=" 
+				+ ", invitations="  + ", localite=" + localite + ", role=" + role + "]";
 	}
 	
 	/**************************Getter & Setter*******************************************/
@@ -146,7 +146,7 @@ public class Utilisateur implements Serializable {
 	public void setProfession(String profession) {
 		this.profession = profession;
 	}
-
+	/*
 	public List<Chapitreappris> getChapitreappris() {
 		return this.chapitreappris;
 	}
@@ -189,7 +189,7 @@ public class Utilisateur implements Serializable {
 		invitation.setUtilisateur(null);
 
 		return invitation;
-	}
+	}*/
 
 	public Localite getLocalite() {
 		return this.localite;

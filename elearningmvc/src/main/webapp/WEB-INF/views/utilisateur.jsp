@@ -7,55 +7,52 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Employee Page</title>
+<title>Utilisateur Page</title>
 </head>
 <body>
  
-<c:url var="addLocalite" value="/localite/add" ></c:url>
-<form:form action="${addLocalite}" modelAttribute="localite">
+<c:url var="addUtilisateur" value="/utilisateur/add" ></c:url>
+<form:form action="${addUtilisateur}" modelAttribute="utilisateur">
 <table>
 			<tr>
-			<td><form:label path="ville">
-						<spring:message text="ville" />
+			<td><form:label path="nom">
+						<spring:message text="nom" />
 					</form:label></td>
 					<td>
-			<form:input path="ville"  type="text"/></td>
+			<form:input path="nom"  type="text"/></td>
 			
 			</tr>
 			
 			<tr>
-			<td><form:label path="CP">
-						<spring:message text="CP" />
+			<td><form:label path="localite_idLocalite">
+						<spring:message text="localite_idLocalite" />
 					</form:label></td>
 					<td>
-			<form:input path="CP" type="text"/></td>
+			<form:input path="localite_idLocalite" type="text"/></td>
 			<td>
 			</tr>
 			
 			<tr>
 			<td>
 			<input type="submit"
-					value="<spring:message text="Add Person"/>" />
+					value="<spring:message text="Add Utilisateur"/>" />
 			</td>
 			</tr>
 		</table>
 		
 		<table border="1">
 		<tr>
-		<th> Localite Id </th>
-		<th> Localite Name </th>
-		<th> Localite Contact </th>
-		<th> Operation </th>
+		<th> nom</th>
+		<th> localite </th>
 		</tr>
 		
-		<c:if test="${!empty localiteList}">
-			<c:forEach items="${localiteList}" var="localite">
+		<c:if test="${!empty utilisateurList}">
+			<c:forEach items="${utilisateurList}" var="utilisateur">
 			<tr>
-			<td>${localite.idLocalite }</td>
-			<td>${localite.ville }</td>
-			<td>${localite.CP }</td>
-			<td><a href="<c:url value='/deleteLocalite/${localite.idLocalite}' />" >Delete</a></td>
-			<td><a href="<c:url value='/editLocalite/${localite.idLocalite}' />" >Edit</a></td>
+			<td>${utilisateur.nom }</td>
+			<td>${utilisateur.localite.idLocalite }</td>
+			<td><a href="<c:url value='/deleteUtilisateur/${utilisateur.idUtilisateur}' />" >Delete</a></td>
+			<td><a href="<c:url value='/editUtilisateur/${utilisateur.idUtilisateur}' />" >Edit</a></td>
 			</tr>
 			</c:forEach>
 		</c:if>
