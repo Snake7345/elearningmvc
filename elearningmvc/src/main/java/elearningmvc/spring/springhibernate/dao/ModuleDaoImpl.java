@@ -8,7 +8,7 @@ import org.hibernate.query.Query;
 
 import elearningmvc.spring.springhibernate.model.Module;
 
-public class ModuleImpl implements ModuleDao
+public class ModuleDaoImpl implements ModuleDao
 {
 	private SessionFactory sessionFactory;
 	 

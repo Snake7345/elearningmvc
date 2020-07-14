@@ -3,8 +3,6 @@ package elearningmvc.spring.springhibernate.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import elearningmvc.spring.springhibernate.dao.LocaliteDao;
 import elearningmvc.spring.springhibernate.model.Localite;
 
