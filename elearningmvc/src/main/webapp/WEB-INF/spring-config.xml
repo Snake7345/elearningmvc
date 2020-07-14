@@ -8,7 +8,7 @@
 		
 <mvc:annotation-driven/>
  
-<mvc:default-servlet-handler />
+<mvc:default-servlet-handler/>
  
 <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
