@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import elearningmvc.spring.springhibernate.model.Formatchapitre;
 import elearningmvc.spring.springhibernate.service.FormatchapitreService;
 
-@Controller
+//@Controller
 public class FormatchapitreController 
 {
+	/*
 	FormatchapitreService formatchapitreService;
 	 
 	public FormatchapitreService getFormatchapitreService() 
@@ -58,4 +59,5 @@ public class FormatchapitreController
 		model.addAttribute("formatchapitre", this.formatchapitreService.getById(id));
 		return "formatchapitreedit";
 	}
+	*/
 }

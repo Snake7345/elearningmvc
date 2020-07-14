@@ -14,6 +14,7 @@ import elearningmvc.spring.springhibernate.service.RoleService;
 @Controller
 public class RoleController 
 {
+	
 	RoleService roleService;
 	 
 	public RoleService getRoleService() 
@@ -58,4 +59,5 @@ public class RoleController
 		model.addAttribute("role", this.roleService.getById(id));
 		return "roleedit";
 	}
+	
 }

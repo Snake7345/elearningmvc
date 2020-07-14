@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import elearningmvc.spring.springhibernate.model.Chapitreappris;
 import elearningmvc.spring.springhibernate.service.ChapitreapprisService;
 
-@Controller
+//@Controller
 public class ChapitreapprisController 
 {
+	/*
 	ChapitreapprisService chapitreapprisService;
 	 
 	public ChapitreapprisService getChapitreapprisService() 
@@ -58,4 +59,5 @@ public class ChapitreapprisController
 		model.addAttribute("chapitreappris", this.chapitreapprisService.getById(id));
 		return "chapitreapprisedit";
 	}
+	*/
 }

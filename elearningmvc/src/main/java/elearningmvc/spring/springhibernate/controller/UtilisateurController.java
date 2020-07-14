@@ -8,12 +8,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import elearningmvc.spring.springhibernate.model.Localite;
 import elearningmvc.spring.springhibernate.model.Utilisateur;
 import elearningmvc.spring.springhibernate.service.UtilisateurService;
 
 @Controller
 public class UtilisateurController 
 {
+	
 	UtilisateurService utilisateurService;
 	 
 	public UtilisateurService getUtilisateurService() 
@@ -25,13 +27,13 @@ public class UtilisateurController
 	public void setUtilisateurService(UtilisateurService utilisateurService) {
 		this.utilisateurService = utilisateurService;
 	}
-	
 
 	@RequestMapping(value = "/utilisateur", method = RequestMethod.GET)
 	public String getAllUtilisateur(Model model) {
 		model.addAttribute("utilisateur", new Utilisateur());
 		model.addAttribute("utilisateurList",
 		this.utilisateurService.getAllUtilisateur());
+		System.out.print(this.utilisateurService.getAllUtilisateur().get(0));
 		return "utilisateur";
 	}
  
@@ -58,4 +60,5 @@ public class UtilisateurController
 		model.addAttribute("utilisateur", this.utilisateurService.getById(id));
 		return "utilisateuredit";
 	}
+	
 }

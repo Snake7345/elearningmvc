@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import elearningmvc.spring.springhibernate.model.Chapitre_formatchapitre;
 import elearningmvc.spring.springhibernate.service.Chapitre_formatchapitreService;
 
-@Controller
+/*@Controller*/
 public class Chapitre_formatchapitreController 
 {
+	/*
 	Chapitre_formatchapitreService chapitre_formatchapitreService;
 	 
 	public Chapitre_formatchapitreService getChapitre_formatchapitreService() 
@@ -58,4 +59,5 @@ public class Chapitre_formatchapitreController
 		model.addAttribute("chapitre_formatchapitre", this.chapitre_formatchapitreService.getById(id));
 		return "chapitre_formatchapitreedit";
 	}
+	*/
 }

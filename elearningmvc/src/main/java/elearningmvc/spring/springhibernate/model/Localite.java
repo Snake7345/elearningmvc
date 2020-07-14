@@ -26,8 +26,8 @@ public class Localite implements Serializable
 	@Column(name="ville")
 	private String ville;
 	//bi-directional many-to-one association to Utilisateur
-	//@OneToMany(mappedBy="localite")
-	//private List<Utilisateur> utilisateurs;
+	@OneToMany(mappedBy="localite")
+	private List<Utilisateur> utilisateurs;
 
 	@Override
 	public String toString() {
@@ -60,16 +60,16 @@ public class Localite implements Serializable
 		this.ville = ville;
 	}
 	
-	/*public List<Utilisateur> getUtilisateurs() {
+	public List<Utilisateur> getUtilisateurs() {
 		return this.utilisateurs;
 	}
 
 	public void setUtilisateurs(List<Utilisateur> utilisateurs) {
 		this.utilisateurs = utilisateurs;
-	}*/
+	}
 	
 
-	/*public Utilisateur addUtilisateur(Utilisateur utilisateur) {
+	public Utilisateur addUtilisateur(Utilisateur utilisateur) {
 		getUtilisateurs().add(utilisateur);
 		utilisateur.setLocalite(this);
 
@@ -81,7 +81,7 @@ public class Localite implements Serializable
 		utilisateur.setLocalite(null);
 
 		return utilisateur;
-	}*/
+	}
 
 
 

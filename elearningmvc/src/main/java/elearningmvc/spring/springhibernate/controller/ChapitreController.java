@@ -12,9 +12,10 @@ import elearningmvc.spring.springhibernate.model.Chapitre;
 import elearningmvc.spring.springhibernate.service.ChapitreService;
 
 
-@Controller
+//@Controller
 public class ChapitreController 
 {
+	/*
 	ChapitreService chapitreService;
 	 
 	public ChapitreService getChapitreService() 
@@ -59,4 +60,5 @@ public class ChapitreController
 		model.addAttribute("chapitre", this.chapitreService.getById(id));
 		return "chapitreedit";
 	}
+	*/
 }

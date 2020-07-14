@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import elearningmvc.spring.springhibernate.model.Invitation;
 import elearningmvc.spring.springhibernate.service.InvitationService;
 
-@Controller
+//@Controller
 public class InvitationController 
 {
+	/*
 	InvitationService invitationService;
 	 
 	public InvitationService getInvitationService() 
@@ -58,4 +59,5 @@ public class InvitationController
 		model.addAttribute("invitation", this.invitationService.getById(id));
 		return "invitationedit";
 	}
+	*/
 }

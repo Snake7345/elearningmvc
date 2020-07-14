@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import elearningmvc.spring.springhibernate.model.Module;
 import elearningmvc.spring.springhibernate.service.ModuleService;
 
-@Controller
+//@Controller
 public class ModuleController 
 {
+	/*
 	ModuleService moduleService;
 	 
 	public ModuleService getModuleService() 
@@ -58,4 +59,5 @@ public class ModuleController
 		model.addAttribute("module", this.moduleService.getById(id));
 		return "moduleedit";
 	}
+	*/
 }

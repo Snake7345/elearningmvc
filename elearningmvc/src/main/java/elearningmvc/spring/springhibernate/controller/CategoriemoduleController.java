@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import elearningmvc.spring.springhibernate.model.Categoriemodule;
 import elearningmvc.spring.springhibernate.service.CategoriemoduleService;
 
-@Controller
+//@Controller
 public class CategoriemoduleController 
 {
+	/*
 	CategoriemoduleService categoriemoduleService;
 	 
 	public CategoriemoduleService getCategoriemoduleService() 
@@ -59,4 +60,5 @@ public class CategoriemoduleController
 		model.addAttribute("categoriemodule", this.categoriemoduleService.getById(id));
 		return "categoriemoduleedit";
 	}
+	*/
 }

@@ -24,11 +24,11 @@
 			</tr>
 			
 			<tr>
-			<td><form:label path="localite_idLocalite">
-						<spring:message text="localite_idLocalite" />
+			<td><form:label path="localite.ville">
+						<spring:message text="localite" />
 					</form:label></td>
 					<td>
-			<form:input path="localite_idLocalite" type="text"/></td>
+			<form:input path="localite.ville" type="text"/></td>
 			<td>
 			</tr>
 			
@@ -49,8 +49,8 @@
 		<c:if test="${!empty utilisateurList}">
 			<c:forEach items="${utilisateurList}" var="utilisateur">
 			<tr>
-			<td>${utilisateur.nom }</td>
-			<td>${utilisateur.localite.idLocalite }</td>
+			<td>${utilisateur.nom}</td>
+			<td>${utilisateur.localite.ville}</td>
 			<td><a href="<c:url value='/deleteUtilisateur/${utilisateur.idUtilisateur}' />" >Delete</a></td>
 			<td><a href="<c:url value='/editUtilisateur/${utilisateur.idUtilisateur}' />" >Edit</a></td>
 			</tr>
