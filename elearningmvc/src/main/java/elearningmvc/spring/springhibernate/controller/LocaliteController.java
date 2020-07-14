@@ -62,6 +62,6 @@ public class LocaliteController
 	@RequestMapping(value = "/editLocalite/{id}")
 	public String editLocalite(@PathVariable("id") int id, Model model) {
 		model.addAttribute("localite", this.localiteService.getById(id));
-		return "edit";
+		return "localiteedit";
 	}
 }

@@ -1,5 +1,61 @@
 package elearningmvc.spring.springhibernate.controller;
 
-public class UtilisateurController {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import elearningmvc.spring.springhibernate.model.Utilisateur;
+import elearningmvc.spring.springhibernate.service.UtilisateurService;
+
+@Controller
+public class UtilisateurController 
+{
+	UtilisateurService utilisateurService;
+	 
+	public UtilisateurService getUtilisateurService() 
+	{
+		return utilisateurService;
+	}	
+
+	@Autowired
+	public void setUtilisateurService(UtilisateurService utilisateurService) {
+		this.utilisateurService = utilisateurService;
+	}
+	
+
+	@RequestMapping(value = "/utilisateur", method = RequestMethod.GET)
+	public String getAllUtilisateur(Model model) {
+		model.addAttribute("utilisateur", new Utilisateur());
+		model.addAttribute("utilisateurList",
+		this.utilisateurService.getAllUtilisateur());
+		return "utilisateur";
+	}
+ 
+	@RequestMapping(value = "/utilisateur/add", method = RequestMethod.POST)
+	public String addUtilisateur(@ModelAttribute("utilisateur") Utilisateur utilisateur) {
+		this.utilisateurService.saveUtilisateur(utilisateur);
+		return "redirect:/utilisateur";
+	}
+ 
+	@RequestMapping(value = "/utilisateur/update", method = RequestMethod.POST)
+	public String updateUtilisateur(@ModelAttribute("utilisateur") Utilisateur utilisateur) {
+		this.utilisateurService.updateUtilisateur(utilisateur);
+		return "redirect:/utilisateur";
+	}
+ 
+	@RequestMapping(value = "/deleteUtilisateur/{id}")
+	public String removeUtilisateur(@PathVariable("id") int id) {
+		this.utilisateurService.deleteUtilisateur(id);
+		return "redirect:/utilisateur";
+	}
+ 
+	@RequestMapping(value = "/editUtilisateur/{id}")
+	public String editUtilisateur(@PathVariable("id") int id, Model model) {
+		model.addAttribute("utilisateur", this.utilisateurService.getById(id));
+		return "utilisateuredit";
+	}
 }
