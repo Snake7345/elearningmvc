@@ -7,61 +7,110 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Employee Page</title>
+<title>Utilisateur edit</title>
 </head>
 <body>
- 
-<c:url var="addLocalite" value="/localite/add" ></c:url>
-<form:form action="${addLocalite}" modelAttribute="localite">
+<c:url var="updateUtilisateur" value='/utilisateur/update' />
+<form:form action="${updateUtilisateur}" modelAttribute="utilisateur">
 <table>
+ 
 			<tr>
-			<td><form:label path="ville">
-						<spring:message text="ville" />
+			<td><form:label path="nom">
+						<spring:message text="nom" />
 					</form:label></td>
 					<td>
-			<form:input path="ville"  type="text"/></td>
+			<form:input path="nom"  type="text"/></td>
 			
 			</tr>
 			
 			<tr>
-			<td><form:label path="CP">
-						<spring:message text="CP" />
+			<td><form:label path="prenom">
+						<spring:message text="prenom" />
 					</form:label></td>
 					<td>
-			<form:input path="CP" type="text"/></td>
+			<form:input path="prenom"  type="text"/></td>
+			
+			</tr>
+			
+			<tr>
+			<td><form:label path="adresse">
+						<spring:message text="adresse" />
+					</form:label></td>
+					<td>
+			<form:input path="adresse"  type="text"/></td>
+			
+			</tr>
+			
+			<tr>
+			<td><form:label path="login">
+						<spring:message text="login" />
+					</form:label></td>
+					<td>
+			<form:input path="login"  type="text"/></td>
+			
+			</tr>
+			
+			<tr>
+			<td><form:label path="password">
+						<spring:message text="password" />
+					</form:label></td>
+					<td>
+			<form:input path="password"  type="text"/></td>
+			
+			</tr>
+			
+			<tr>
+			<td><form:label path="profession">
+						<spring:message text="profession" />
+					</form:label></td>
+					<td>
+			<form:input path="profession"  type="text"/></td>
+			
+			</tr>
+			
+			<tr>
+			<td><form:label path="mobile">
+						<spring:message text="mobile" />
+					</form:label></td>
+					<td>
+			<form:input path="mobile"  type="text"/></td>
+			
+			</tr>
+			
+			<tr>
+			<td><form:label path="email">
+						<spring:message text="email" />
+					</form:label></td>
+					<td>
+			<form:input path="email"  type="text"/></td>
+			
+			</tr>
+			
+			<tr>
+			<td><form:label path="localite.ville">
+						<spring:message text="localite" />
+					</form:label></td>
+					<td>
+			<form:input path="localite.ville" type="text"/></td>
+			<td>
+			</tr>
+			
+			<tr>
+			<td><form:label path="role.denomination">
+						<spring:message text="role" />
+					</form:label></td>
+					<td>
+			<form:input path="role.denomination" type="text"/></td>
 			<td>
 			</tr>
 			
 			<tr>
 			<td>
 			<input type="submit"
-					value="<spring:message text="Add Person"/>" />
+					value="<spring:message text="Add Utilisateur"/>" />
 			</td>
 			</tr>
 		</table>
-		
-		<table border="1">
-		<tr>
-		<th> Localite Id </th>
-		<th> Localite Name </th>
-		<th> Localite Contact </th>
-		<th> Operation </th>
-		</tr>
-		
-		<c:if test="${!empty localiteList}">
-			<c:forEach items="${localiteList}" var="localite">
-			<tr>
-			<td>${localite.idLocalite }</td>
-			<td>${localite.ville }</td>
-			<td>${localite.CP }</td>
-			<td><a href="<c:url value='/deleteLocalite/${localite.idLocalite}' />" >Delete</a></td>
-			<td><a href="<c:url value='/editLocalite/${localite.idLocalite}' />" >Edit</a></td>
-			</tr>
-			</c:forEach>
-		</c:if>
-		</table>
-</form:form>
- 
- 
+		</form:form>
 </body>
 </html>
