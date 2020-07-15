@@ -57,7 +57,7 @@ public class InvitationController
 	@RequestMapping(value = "/editInvitation/{id}")
 	public String editInvitation(@PathVariable("id") int id, Model model) {
 		model.addAttribute("invitation", this.invitationService.getById(id));
-		return "invitationedit";
+		return "editInvitation";
 	}
 	*/
 }

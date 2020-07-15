@@ -57,7 +57,7 @@ public class FormatchapitreController
 	@RequestMapping(value = "/editFormatchapitre/{id}")
 	public String editFormatchapitre(@PathVariable("id") int id, Model model) {
 		model.addAttribute("formatchapitre", this.formatchapitreService.getById(id));
-		return "formatchapitreedit";
+		return "editFormatchapitre";
 	}
 	*/
 }

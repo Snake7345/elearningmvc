@@ -58,7 +58,7 @@ public class UtilisateurController
 	@RequestMapping(value = "/editUtilisateur/{id}")
 	public String editUtilisateur(@PathVariable("id") int id, Model model) {
 		model.addAttribute("utilisateur", this.utilisateurService.getById(id));
-		return "utilisateuredit";
+		return "editUtilisateur";
 	}
 	
 }

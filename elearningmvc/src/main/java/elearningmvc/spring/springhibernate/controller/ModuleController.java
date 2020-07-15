@@ -57,7 +57,7 @@ public class ModuleController
 	@RequestMapping(value = "/editModule/{id}")
 	public String editModule(@PathVariable("id") int id, Model model) {
 		model.addAttribute("module", this.moduleService.getById(id));
-		return "moduleedit";
+		return "editModule";
 	}
 	*/
 }

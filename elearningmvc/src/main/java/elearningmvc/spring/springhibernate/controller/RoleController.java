@@ -57,7 +57,7 @@ public class RoleController
 	@RequestMapping(value = "/editRole/{id}")
 	public String editRole(@PathVariable("id") int id, Model model) {
 		model.addAttribute("role", this.roleService.getById(id));
-		return "roleedit";
+		return "editRole";
 	}
 	
 }

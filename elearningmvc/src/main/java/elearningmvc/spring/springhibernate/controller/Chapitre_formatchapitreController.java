@@ -57,7 +57,7 @@ public class Chapitre_formatchapitreController
 	@RequestMapping(value = "/editChapitre_formatchapitre/{id}")
 	public String editChapitre_formatchapitre(@PathVariable("id") int id, Model model) {
 		model.addAttribute("chapitre_formatchapitre", this.chapitre_formatchapitreService.getById(id));
-		return "chapitre_formatchapitreedit";
+		return "editChapitre_formatchapitre";
 	}
 	*/
 }

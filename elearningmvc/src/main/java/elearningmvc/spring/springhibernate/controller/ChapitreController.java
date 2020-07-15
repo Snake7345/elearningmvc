@@ -58,7 +58,7 @@ public class ChapitreController
 	@RequestMapping(value = "/editChapitre/{id}")
 	public String editChapitre(@PathVariable("id") int id, Model model) {
 		model.addAttribute("chapitre", this.chapitreService.getById(id));
-		return "chapitreedit";
+		return "editChapitre";
 	}
 	*/
 }

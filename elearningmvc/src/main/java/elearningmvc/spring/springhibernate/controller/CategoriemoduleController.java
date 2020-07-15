@@ -58,7 +58,7 @@ public class CategoriemoduleController
 	@RequestMapping(value = "/editCategoriemodule/{id}")
 	public String editCategoriemodule(@PathVariable("id") int id, Model model) {
 		model.addAttribute("categoriemodule", this.categoriemoduleService.getById(id));
-		return "categoriemoduleedit";
+		return "editCategoriemodule";
 	}
 	*/
 }
