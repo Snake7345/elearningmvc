@@ -11,51 +11,39 @@
 </head>
 <body>
  
-<c:url var="addLocalite" value="/localite/add" ></c:url>
-<form:form action="${addLocalite}" modelAttribute="localite">
+<c:url var="addRole" value="/role/add" ></c:url>
+<form:form action="${addRole}" modelAttribute="role">
 <table>
 			<tr>
-			<td><form:label path="ville">
-						<spring:message text="ville" />
+			<td><form:label path="denomination">
+						<spring:message text="denomination" />
 					</form:label></td>
 					<td>
-			<form:input path="ville"  type="text"/></td>
+			<form:input path="denomination"  type="text"/></td>
 			
-			</tr>
-			
-			<tr>
-			<td><form:label path="CP">
-						<spring:message text="CP" />
-					</form:label></td>
-					<td>
-			<form:input path="CP" type="text"/></td>
-			<td>
 			</tr>
 			
 			<tr>
 			<td>
 			<input type="submit"
-					value="<spring:message text="Add Person"/>" />
+					value="<spring:message text="Add Role"/>" />
 			</td>
 			</tr>
 		</table>
 		
 		<table border="1">
 		<tr>
-		<th> Localite Id </th>
-		<th> Localite Name </th>
-		<th> Localite Contact </th>
-		<th> Operation </th>
+		<th> Role ID </th>
+		<th> Denomination</th>
 		</tr>
 		
-		<c:if test="${!empty localiteList}">
-			<c:forEach items="${localiteList}" var="localite">
+		<c:if test="${!empty roleList}">
+			<c:forEach items="${roleList}" var="role">
 			<tr>
-			<td>${localite.idLocalite }</td>
-			<td>${localite.ville }</td>
-			<td>${localite.CP }</td>
-			<td><a href="<c:url value='/deleteLocalite/${localite.idLocalite}' />" >Delete</a></td>
-			<td><a href="<c:url value='/editLocalite/${localite.idLocalite}' />" >Edit</a></td>
+			<td>${role.idRole}</td>
+			<td>${role.denomination}</td>
+			<td><a href="<c:url value='/deleteRole/${role.idRole}' />" >Delete</a></td>
+			<td><a href="<c:url value='/editRole/${role.idRole}' />" >Edit</a></td>
 			</tr>
 			</c:forEach>
 		</c:if>
