@@ -7,30 +7,50 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Employee Page</title>
+<title>Chapitre Page</title>
 </head>
 <body>
  
-<c:url var="addLocalite" value="/localite/add" ></c:url>
-<form:form action="${addLocalite}" modelAttribute="localite">
+<c:url var="addChapitre" value="/chapitre/add" ></c:url>
+<form:form action="${addChapitre}" modelAttribute="chapitre">
 <table>
 			<tr>
-			<td><form:label path="ville">
-						<spring:message text="ville" />
+			<td><form:label path="intitule">
+						<spring:message text="intitule" />
 					</form:label></td>
 					<td>
-			<form:input path="ville"  type="text"/></td>
+			<form:input path="intitule"  type="text"/></td>
 			
 			</tr>
 			
 			<tr>
-			<td><form:label path="CP">
-						<spring:message text="CP" />
+			<td><form:label path="cotation">
+						<spring:message text="cotation" />
 					</form:label></td>
 					<td>
-			<form:input path="CP" type="text"/></td>
+			<form:input path="cotation" type="text"/></td>
 			<td>
 			</tr>
+			
+			<tr>
+			<td><form:label path="quizz">
+						<spring:message text="quizz" />
+					</form:label></td>
+					<td>
+			<form:input path="quizz" type="text"/></td>
+			<td>
+			</tr>
+			
+			<tr>
+			<td><form:label path="emplacement">
+						<spring:message text="emplacement" />
+					</form:label></td>
+					<td>
+			<form:input path="emplacement" type="text"/></td>
+			<td>
+			</tr>
+			
+			
 			
 			<tr>
 			<td>
@@ -42,20 +62,25 @@
 		
 		<table border="1">
 		<tr>
-		<th> Localite Id </th>
-		<th> Localite Name </th>
-		<th> Localite Contact </th>
-		<th> Operation </th>
+		<th> Chapitre Id </th>
+		<th> Chapitre Intitule </th>
+		<th> Chapitre cotation </th>
+		<th> Quizz</th>
+		<th> Emplacement</th>
+		<th> moduleIdModule</th>
 		</tr>
 		
-		<c:if test="${!empty localiteList}">
-			<c:forEach items="${localiteList}" var="localite">
+		<c:if test="${!empty chapitreList}">
+			<c:forEach items="${chapitreList}" var="chapitre">
 			<tr>
-			<td>${localite.idLocalite }</td>
-			<td>${localite.ville }</td>
-			<td>${localite.CP }</td>
-			<td><a href="<c:url value='/deleteLocalite/${localite.idLocalite}' />" >Delete</a></td>
-			<td><a href="<c:url value='/editLocalite/${localite.idLocalite}' />" >Edit</a></td>
+			<td>${chapitre.idChapitre}</td>
+			<td>${chapitre.intitule}</td>
+			<td>${chapitre.cotation}</td>
+			<td>${chapitre.quizz}</td>
+			<td>${chapitre.emplacement}</td>
+			<td>${chapitre.module.intitule}</td>
+			<td><a href="<c:url value='/deleteChapitre/${chapitre.idChapitre}' />" >Delete</a></td>
+			<td><a href="<c:url value='/editChapitre/${chapitre.idChapitre}' />" >Edit</a></td>
 			</tr>
 			</c:forEach>
 		</c:if>

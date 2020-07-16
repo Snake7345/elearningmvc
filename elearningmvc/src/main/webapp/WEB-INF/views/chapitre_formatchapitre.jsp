@@ -11,8 +11,8 @@
 </head>
 <body>
  
-<c:url var="addLocalite" value="/localite/add" ></c:url>
-<form:form action="${addLocalite}" modelAttribute="localite">
+<c:url var="addChapitre_formatchapitre" value="/chapitre_formatchapitre/add" ></c:url>
+<form:form action="${addChapitre_formatchapitre}" modelAttribute="chapitre_formatchapitre">
 <table>
 			<tr>
 			<td><form:label path="ville">

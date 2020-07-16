@@ -7,61 +7,38 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Employee Page</title>
+<title>Categoriemodule edit</title>
 </head>
 <body>
- 
-<c:url var="addLocalite" value="/localite/add" ></c:url>
-<form:form action="${addLocalite}" modelAttribute="localite">
+<c:url var="updateCategoriemodule" value='/categoriemodule/update' />
+<form:form action="${updateCategoriemodule}" modelAttribute="categoriemodule">
 <table>
+ 
 			<tr>
-			<td><form:label path="ville">
-						<spring:message text="ville" />
+			<td><form:label path="idCatModule">
+						<spring:message text="idCatModule" />
 					</form:label></td>
 					<td>
-			<form:input path="ville"  type="text"/></td>
+			<form:input path="idCatModule"  type="text"/></td>
 			
 			</tr>
 			
 			<tr>
-			<td><form:label path="CP">
-						<spring:message text="CP" />
+			<td><form:label path="denomination">
+						<spring:message text="denomination" />
 					</form:label></td>
 					<td>
-			<form:input path="CP" type="text"/></td>
-			<td>
+			<form:input path="denomination"  type="text"/></td>
+			
 			</tr>
 			
 			<tr>
 			<td>
 			<input type="submit"
-					value="<spring:message text="Add Person"/>" />
+					value="<spring:message text="Update CP"/>" />
 			</td>
 			</tr>
 		</table>
-		
-		<table border="1">
-		<tr>
-		<th> Localite Id </th>
-		<th> Localite Name </th>
-		<th> Localite Contact </th>
-		<th> Operation </th>
-		</tr>
-		
-		<c:if test="${!empty localiteList}">
-			<c:forEach items="${localiteList}" var="localite">
-			<tr>
-			<td>${localite.idLocalite }</td>
-			<td>${localite.ville }</td>
-			<td>${localite.CP }</td>
-			<td><a href="<c:url value='/deleteLocalite/${localite.idLocalite}' />" >Delete</a></td>
-			<td><a href="<c:url value='/editLocalite/${localite.idLocalite}' />" >Edit</a></td>
-			</tr>
-			</c:forEach>
-		</c:if>
-		</table>
-</form:form>
- 
- 
+		</form:form>
 </body>
 </html>
