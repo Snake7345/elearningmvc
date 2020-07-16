@@ -88,10 +88,19 @@
 			
 			<tr>
 			<td><form:label path="localite.ville">
-						<spring:message text="localite" />
+						<spring:message text="localite.ville" />
 					</form:label></td>
 					<td>
-			<form:input path="localite.ville" type="text"/></td>
+			<form:input path="localite.ville" name="ville" type="text"/></td>
+			<td>
+			</tr>
+			
+			<tr>
+			<td><form:label path="localite.CP">
+						<spring:message text="localite.CP" />
+					</form:label></td>
+					<td>
+			<form:input path="localite.CP" name="CP" type="text"/></td>
 			<td>
 			</tr>
 			
@@ -100,7 +109,7 @@
 						<spring:message text="role" />
 					</form:label></td>
 					<td>
-			<form:input path="role.denomination" type="text"/></td>
+			<form:input path="role.denomination" name="role" type="text"/></td>
 			<td>
 			</tr>
 			

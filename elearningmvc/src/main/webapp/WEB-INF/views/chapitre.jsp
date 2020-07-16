@@ -50,7 +50,14 @@
 			<td>
 			</tr>
 			
-			
+			<tr>
+			<td><form:label path="module.intitule">
+						<spring:message text="module.intitule" />
+					</form:label></td>
+					<td>
+			<form:input path="module.intitule" type="text"/></td>
+			<td>
+			</tr>
 			
 			<tr>
 			<td>

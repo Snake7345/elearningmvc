@@ -8,9 +8,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import elearningmvc.spring.springhibernate.model.Localite;
 import elearningmvc.spring.springhibernate.model.Utilisateur;
 import elearningmvc.spring.springhibernate.service.UtilisateurService;
+import elearningmvc.spring.springhibernate.service.LocaliteService;
 
 @Controller
 public class UtilisateurController 
@@ -58,6 +63,8 @@ public class UtilisateurController
 	@RequestMapping(value = "/editUtilisateur/{id}")
 	public String editUtilisateur(@PathVariable("id") int id, Model model) {
 		model.addAttribute("utilisateur", this.utilisateurService.getById(id));
+
+		
 		return "editUtilisateur";
 	}
 	
