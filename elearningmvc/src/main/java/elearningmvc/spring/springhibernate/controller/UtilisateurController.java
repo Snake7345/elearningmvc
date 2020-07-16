@@ -8,8 +8,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import elearningmvc.spring.springhibernate.dao.LocaliteDao;
+import elearningmvc.spring.springhibernate.dao.LocaliteDaoImpl;
+import elearningmvc.spring.springhibernate.model.Localite;
 import elearningmvc.spring.springhibernate.model.Utilisateur;
 import elearningmvc.spring.springhibernate.service.UtilisateurService;
+import elearningmvc.spring.springhibernate.service.LocaliteService;
 
 @Controller
 public class UtilisateurController 
@@ -38,6 +46,11 @@ public class UtilisateurController
  
 	@RequestMapping(value = "/utilisateur/add", method = RequestMethod.POST)
 	public String addUtilisateur(@ModelAttribute("utilisateur") Utilisateur utilisateur) {
+		/*Model test1 = new Model();
+		String ville = req.getParameter("ville");
+		List<Localite> test =  test1.getLocaliteService().getAllLocalite();
+		System.out.println("kekette:");
+		System.out.println(test.get(0).getVille());*/
 		this.utilisateurService.saveUtilisateur(utilisateur);
 		return "redirect:/utilisateur";
 	}
