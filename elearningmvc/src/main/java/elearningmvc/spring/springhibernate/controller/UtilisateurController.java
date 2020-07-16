@@ -8,14 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
-import elearningmvc.spring.springhibernate.model.Localite;
 import elearningmvc.spring.springhibernate.model.Utilisateur;
 import elearningmvc.spring.springhibernate.service.UtilisateurService;
-import elearningmvc.spring.springhibernate.service.LocaliteService;
 
 @Controller
 public class UtilisateurController 
