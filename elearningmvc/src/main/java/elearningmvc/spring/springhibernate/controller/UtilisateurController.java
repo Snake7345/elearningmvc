@@ -22,9 +22,6 @@ public class UtilisateurController
 	UtilisateurService utilisateurService;
 	LocaliteService localiteService;
 	RoleService roleService;
-	 
-	
-
 
 	public UtilisateurService getUtilisateurService() 
 	{
@@ -62,17 +59,13 @@ public class UtilisateurController
 		model.addAttribute("localiteList", this.localiteService.getAllLocalite());
 		model.addAttribute("role", new Role());
 		model.addAttribute("roleList", this.roleService.getAllRole());
-		System.out.print(this.utilisateurService.getAllUtilisateur().get(0));
 		return "utilisateur";
 	}
  
 	@RequestMapping(value = "/utilisateur/add", method = RequestMethod.POST)
 	public String addUtilisateur(@ModelAttribute("utilisateur") Utilisateur utilisateur) {
-		/*Model test1 = new Model();
-		String ville = req.getParameter("ville");
-		List<Localite> test =  test1.getLocaliteService().getAllLocalite();
-		System.out.println("kekette:");
-		System.out.println(test.get(0).getVille());*/
+		System.out.println("affiche : ");
+		System.out.println(utilisateur);
 		this.utilisateurService.saveUtilisateur(utilisateur);
 		return "redirect:/utilisateur";
 	}
