@@ -99,26 +99,22 @@
 			<td>
 			<sf:label path="localite.ville"><spring:message text="localite.ville" />
 					</sf:label>
+			</td>
+			<td>
 			<sf:select path="localite.ville" items="${localiteList}" itemLabel="ville" itemValue="ville">
 			</sf:select>
 			</td>
 			</tr>
-			<tr>
-			<td><sf:label path="localite.CP">
-						<spring:message text="localite.CP" />
-					</sf:label></td>
-					<td>
-			<sf:input path="localite.CP" name="CP" type="text"/></td>
-			<td>
-			</tr>
 			
 			<tr>
-			<td><sf:label path="role.denomination">
-						<spring:message text="role" />
-					</sf:label></td>
-					<td>
-			<sf:input path="role.denomination" name="role" type="text"/></td>
 			<td>
+			<sf:label path="role.denomination"><spring:message text="role.denomination" />
+					</sf:label>
+			</td>
+			<td>
+			<sf:select path="role.denomination" items="${roleList}" itemLabel="denomination" itemValue="denomination">
+			</sf:select>
+			</td>
 			</tr>
 			
 			<tr>

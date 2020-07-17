@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import elearningmvc.spring.springhibernate.model.Localite;
+import elearningmvc.spring.springhibernate.model.Role;
 import elearningmvc.spring.springhibernate.model.Utilisateur;
 import elearningmvc.spring.springhibernate.service.UtilisateurService;
 import elearningmvc.spring.springhibernate.service.LocaliteService;
+import elearningmvc.spring.springhibernate.service.RoleService;
 
 @Controller
 public class UtilisateurController 
@@ -19,8 +21,11 @@ public class UtilisateurController
 	
 	UtilisateurService utilisateurService;
 	LocaliteService localiteService;
+	RoleService roleService;
 	 
 	
+
+
 	public UtilisateurService getUtilisateurService() 
 	{
 		return utilisateurService;
@@ -29,6 +34,10 @@ public class UtilisateurController
 	public LocaliteService getLocaliteService() 
 	{
 		return localiteService;
+	}
+	
+	public RoleService getRoleService() {
+		return roleService;
 	}
 
 	@Autowired
@@ -39,6 +48,10 @@ public class UtilisateurController
 	public void setLocaliteService(LocaliteService localiteService) {
 		this.localiteService = localiteService;
 	}
+	@Autowired
+	public void setRoleService(RoleService roleService) {
+		this.roleService = roleService;
+	}
 	
 
 	@RequestMapping(value = "/utilisateur", method = RequestMethod.GET)
@@ -47,6 +60,8 @@ public class UtilisateurController
 		model.addAttribute("utilisateurList", this.utilisateurService.getAllUtilisateur());
 		model.addAttribute("localite", new Localite());
 		model.addAttribute("localiteList", this.localiteService.getAllLocalite());
+		model.addAttribute("role", new Role());
+		model.addAttribute("roleList", this.roleService.getAllRole());
 		System.out.print(this.utilisateurService.getAllUtilisateur().get(0));
 		return "utilisateur";
 	}
