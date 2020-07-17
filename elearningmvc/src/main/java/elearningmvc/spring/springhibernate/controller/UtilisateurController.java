@@ -8,12 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
-import elearningmvc.spring.springhibernate.dao.LocaliteDao;
-import elearningmvc.spring.springhibernate.dao.LocaliteDaoImpl;
 import elearningmvc.spring.springhibernate.model.Localite;
 import elearningmvc.spring.springhibernate.model.Utilisateur;
 import elearningmvc.spring.springhibernate.service.UtilisateurService;
@@ -24,22 +18,35 @@ public class UtilisateurController
 {
 	
 	UtilisateurService utilisateurService;
+	LocaliteService localiteService;
 	 
+	
 	public UtilisateurService getUtilisateurService() 
 	{
 		return utilisateurService;
 	}	
+	
+	public LocaliteService getLocaliteService() 
+	{
+		return localiteService;
+	}
 
 	@Autowired
 	public void setUtilisateurService(UtilisateurService utilisateurService) {
 		this.utilisateurService = utilisateurService;
 	}
+	@Autowired
+	public void setLocaliteService(LocaliteService localiteService) {
+		this.localiteService = localiteService;
+	}
+	
 
 	@RequestMapping(value = "/utilisateur", method = RequestMethod.GET)
 	public String getAllUtilisateur(Model model) {
 		model.addAttribute("utilisateur", new Utilisateur());
-		model.addAttribute("utilisateurList",
-		this.utilisateurService.getAllUtilisateur());
+		model.addAttribute("utilisateurList", this.utilisateurService.getAllUtilisateur());
+		model.addAttribute("localite", new Localite());
+		model.addAttribute("localiteList", this.localiteService.getAllLocalite());
 		System.out.print(this.utilisateurService.getAllUtilisateur().get(0));
 		return "utilisateur";
 	}

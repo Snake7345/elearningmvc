@@ -99,8 +99,7 @@
 			<td>
 			<sf:label path="localite.ville"><spring:message text="localite.ville" />
 					</sf:label>
-			<sf:select path="${localite}" id="ville" name="ville">
-				<sf:options items="${localiteList}" name="localite"/>
+			<sf:select path="localite.ville" items="${localiteList}" itemLabel="ville" itemValue="ville">
 			</sf:select>
 			</td>
 			</tr>
