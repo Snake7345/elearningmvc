@@ -30,6 +30,7 @@ public class LocaliteController
 		model.addAttribute("localite", new Localite());
 		model.addAttribute("localiteList",
 				this.localiteService.getAllLocalite());
+		System.out.println(model.getAttribute("localite") + "list:" + model.getAttribute("localiteList"));
 		return "localite";
 	}
  

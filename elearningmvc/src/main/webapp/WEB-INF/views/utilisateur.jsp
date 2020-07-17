@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,80 +12,80 @@
 <body>
  
 <c:url var="addUtilisateur" value="/utilisateur/add" ></c:url>
-<form:form action="${addUtilisateur}" modelAttribute="utilisateur">
+<sf:form action="${addUtilisateur}" modelAttribute="utilisateur">
 <table>
 			<tr>
-			<td><form:label path="nom">
+			<td><sf:label path="nom">
 						<spring:message text="nom" />
-					</form:label></td>
+					</sf:label></td>
 					<td>
-			<form:input path="nom"  type="text"/></td>
+			<sf:input path="nom"  type="text"/></td>
 			
 			</tr>
 			
 			<tr>
-			<td><form:label path="prenom">
+			<td><sf:label path="prenom">
 						<spring:message text="prenom" />
-					</form:label></td>
+					</sf:label></td>
 					<td>
-			<form:input path="prenom"  type="text"/></td>
+			<sf:input path="prenom"  type="text"/></td>
 			
 			</tr>
 			
 			<tr>
-			<td><form:label path="adresse">
+			<td><sf:label path="adresse">
 						<spring:message text="adresse" />
-					</form:label></td>
+					</sf:label></td>
 					<td>
-			<form:input path="adresse"  type="text"/></td>
+			<sf:input path="adresse"  type="text"/></td>
 			
 			</tr>
 			
 			<tr>
-			<td><form:label path="login">
+			<td><sf:label path="login">
 						<spring:message text="login" />
-					</form:label></td>
+					</sf:label></td>
 					<td>
-			<form:input path="login"  type="text"/></td>
+			<sf:input path="login"  type="text"/></td>
 			
 			</tr>
 			
 			<tr>
-			<td><form:label path="password">
+			<td><sf:label path="password">
 						<spring:message text="password" />
-					</form:label></td>
+					</sf:label></td>
 					<td>
-			<form:input path="password"  type="text"/></td>
+			<sf:input path="password"  type="text"/></td>
 			
 			</tr>
 			
 			<tr>
-			<td><form:label path="profession">
+			<td><sf:label path="profession">
 						<spring:message text="profession" />
-					</form:label></td>
+					</sf:label></td>
 					<td>
-			<form:input path="profession"  type="text"/></td>
+			<sf:input path="profession"  type="text"/></td>
 			
 			</tr>
 			
 			<tr>
-			<td><form:label path="mobile">
+			<td><sf:label path="mobile">
 						<spring:message text="mobile" />
-					</form:label></td>
+					</sf:label></td>
 					<td>
-			<form:input path="mobile"  type="text"/></td>
+			<sf:input path="mobile"  type="text"/></td>
 			
 			</tr>
 			
 			<tr>
-			<td><form:label path="email">
+			<td><sf:label path="email">
 						<spring:message text="email" />
-					</form:label></td>
+					</sf:label></td>
 					<td>
-			<form:input path="email"  type="text"/></td>
+			<sf:input path="email"  type="text"/></td>
 			
 			</tr>
-			
+			<!-- 
 			<tr>
 			<td><form:label path="localite.ville">
 						<spring:message text="localite.ville" />
@@ -94,22 +94,31 @@
 			<form:input path="localite.ville" name="ville" type="text"/></td>
 			<td>
 			</tr>
-			
+			 -->
 			<tr>
-			<td><form:label path="localite.CP">
+			<td>
+			<sf:label path="localite.ville"><spring:message text="localite.ville" />
+					</sf:label>
+			<sf:select path="${localite}" id="ville" name="ville">
+				<sf:options items="${localiteList}" name="localite"/>
+			</sf:select>
+			</td>
+			</tr>
+			<tr>
+			<td><sf:label path="localite.CP">
 						<spring:message text="localite.CP" />
-					</form:label></td>
+					</sf:label></td>
 					<td>
-			<form:input path="localite.CP" name="CP" type="text"/></td>
+			<sf:input path="localite.CP" name="CP" type="text"/></td>
 			<td>
 			</tr>
 			
 			<tr>
-			<td><form:label path="role.denomination">
+			<td><sf:label path="role.denomination">
 						<spring:message text="role" />
-					</form:label></td>
+					</sf:label></td>
 					<td>
-			<form:input path="role.denomination" name="role" type="text"/></td>
+			<sf:input path="role.denomination" name="role" type="text"/></td>
 			<td>
 			</tr>
 			
@@ -154,7 +163,7 @@
 			</c:forEach>
 		</c:if>
 		</table>
-</form:form>
+</sf:form>
  
  
 </body>
