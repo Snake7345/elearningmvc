@@ -101,10 +101,11 @@
 					</sf:label>
 			</td>
 			<td>
-			<sf:select path="localite.ville" items="${localiteList}" itemLabel="ville" itemValue="ville">
+			<sf:select path="localite.idLocalite" items="${localiteList}" itemLabel="ville" itemValue="idLocalite">
 			</sf:select>
 			</td>
 			</tr>
+			
 			
 			<tr>
 			<td>
@@ -112,7 +113,7 @@
 					</sf:label>
 			</td>
 			<td>
-			<sf:select path="role.denomination" items="${roleList}" itemLabel="denomination" itemValue="denomination">
+			<sf:select path="role.idRole" items="${roleList}" itemLabel="denomination" itemValue="idRole">
 			</sf:select>
 			</td>
 			</tr>

@@ -64,6 +64,8 @@ public class UtilisateurController
  
 	@RequestMapping(value = "/utilisateur/add", method = RequestMethod.POST)
 	public String addUtilisateur(@ModelAttribute("utilisateur") Utilisateur utilisateur) {
+		utilisateur.setLocalite(localiteService.getById(utilisateur.getLocalite().getIdLocalite()));
+		utilisateur.setRole(roleService.getById(utilisateur.getRole().getIdRole()));
 		System.out.println("affiche : ");
 		System.out.println(utilisateur);
 		this.utilisateurService.saveUtilisateur(utilisateur);

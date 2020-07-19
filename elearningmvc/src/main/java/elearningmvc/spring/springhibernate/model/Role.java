@@ -28,6 +28,12 @@ public class Role implements Serializable
 	@OneToMany(mappedBy="role")
 	private List<Utilisateur> utilisateurs;
 
+	
+	@Override
+	public String toString() {
+		return "Role [idRole=" + idRole + ", denomination=" + denomination + "]";
+	}
+
 	/**************************Getter & Setter*******************************************/
 
 	public Role() {

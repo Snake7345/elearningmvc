@@ -31,8 +31,7 @@ public class Localite implements Serializable
 
 	@Override
 	public String toString() {
-		return "Localite [idLocalite=" + idLocalite + ", cp=" + CP + ", ville=" + ville + ", utilisateurs="
-				 + "]";
+		return "Localite [idLocalite=" + idLocalite + ", cp=" + CP + ", ville=" + ville + "]";
 	}
 
 	/**************************Getter & Setter*******************************************/
