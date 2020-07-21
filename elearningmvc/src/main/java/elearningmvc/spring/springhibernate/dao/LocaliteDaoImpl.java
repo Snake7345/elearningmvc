@@ -24,10 +24,19 @@ public class LocaliteDaoImpl implements LocaliteDao
  
 	public void saveLocalite(Localite localite) {
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		session.save(localite);
-		session.getTransaction().commit();
-		session.close();	
+		try
+		{
+			session.beginTransaction();
+			session.save(localite);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 	}
  
 	public void updateLocalite(Localite localite) {
