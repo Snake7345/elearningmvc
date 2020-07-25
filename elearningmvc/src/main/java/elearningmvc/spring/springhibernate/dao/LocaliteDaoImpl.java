@@ -41,10 +41,19 @@ public class LocaliteDaoImpl implements LocaliteDao
  
 	public void updateLocalite(Localite localite) {
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		session.update(localite);
-		session.getTransaction().commit();
-		session.close();
+		try
+		{
+			session.beginTransaction();
+			session.update(localite);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 		
 	}
  
@@ -65,13 +74,24 @@ public class LocaliteDaoImpl implements LocaliteDao
 		return localite;
 	}
  
-	public void deleteLocalite(int id) {
+	public void deleteLocalite(int id) 
+	{
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
 		Localite localite = (Localite)session.get(Localite.class, new Integer(id));
-		session.delete(localite);
-		session.getTransaction().commit();
-		session.close();
+		try 
+		{
+			session.beginTransaction();
+			session.delete(localite);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
+
 	}
 	
 }

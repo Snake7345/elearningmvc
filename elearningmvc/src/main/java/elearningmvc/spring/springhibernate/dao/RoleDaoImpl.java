@@ -22,18 +22,36 @@ public class RoleDaoImpl implements RoleDao
  
 	public void saveRole(Role role) {
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		session.save(role);
-		session.getTransaction().commit();
-		session.close();	
+		try
+		{
+			session.beginTransaction();
+			session.save(role);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 	}
  
 	public void updateRole(Role role) {
-		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		session.update(role);
-		session.getTransaction().commit();
-		session.close();
+		Session session = this.sessionFactory.openSession();	
+		try
+		{
+			session.beginTransaction();
+			session.update(role);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 		
 	}
  
@@ -56,10 +74,20 @@ public class RoleDaoImpl implements RoleDao
  
 	public void deleteRole(int id) {
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
 		Role role = (Role)session.get(Role.class, new Integer(id));
-		session.delete(role);
-		session.getTransaction().commit();
-		session.close();
+		
+		try
+		{
+			session.beginTransaction();
+			session.delete(role);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 	}
 }

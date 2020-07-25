@@ -22,20 +22,37 @@ public class UtilisateurDaoImpl implements UtilisateurDao
 	}
  
 	public void saveUtilisateur(Utilisateur utilisateur) {
-		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		session.save(utilisateur);
-		session.getTransaction().commit();
-		session.close();	
+		Session session = this.sessionFactory.openSession();	
+		try
+		{
+			session.beginTransaction();
+			session.save(utilisateur);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 	}
  
 	public void updateUtilisateur(Utilisateur utilisateur) {
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		session.update(utilisateur);
-		session.getTransaction().commit();
-		session.close();
-		
+		try
+		{
+			session.beginTransaction();
+			session.update(utilisateur);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 	}
  
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -57,10 +74,20 @@ public class UtilisateurDaoImpl implements UtilisateurDao
  
 	public void deleteUtilisateur(int id) {
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
 		Utilisateur utilisateur = (Utilisateur)session.get(Utilisateur.class, new Integer(id));
-		session.delete(utilisateur);
-		session.getTransaction().commit();
-		session.close();
+		
+		try
+		{
+			session.beginTransaction();
+			session.delete(utilisateur);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 	}
 }
