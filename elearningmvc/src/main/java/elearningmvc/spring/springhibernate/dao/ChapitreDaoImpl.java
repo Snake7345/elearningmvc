@@ -21,19 +21,37 @@ public class ChapitreDaoImpl implements ChapitreDao
 	}
  
 	public void saveChapitre(Chapitre chapitre) {
-		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		session.save(chapitre);
-		session.getTransaction().commit();
-		session.close();	
+		Session session = this.sessionFactory.openSession();		
+		try
+		{
+			session.beginTransaction();
+			session.save(chapitre);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 	}
  
 	public void updateChapitre(Chapitre chapitre) {
-		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		session.update(chapitre);
-		session.getTransaction().commit();
-		session.close();
+		Session session = this.sessionFactory.openSession();	
+		try
+		{
+			session.beginTransaction();
+			session.update(chapitre);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 		
 	}
 	
@@ -56,10 +74,19 @@ public class ChapitreDaoImpl implements ChapitreDao
  
 	public void deleteChapitre(int id) {
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
 		Chapitre chapitre = (Chapitre)session.get(Chapitre.class, new Integer(id));
-		session.delete(chapitre);
-		session.getTransaction().commit();
-		session.close();
+		try
+		{
+			session.beginTransaction();
+			session.delete(chapitre);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 	}
 }

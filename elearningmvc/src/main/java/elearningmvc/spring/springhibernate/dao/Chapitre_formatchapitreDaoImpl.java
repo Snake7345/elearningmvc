@@ -21,19 +21,36 @@ public class Chapitre_formatchapitreDaoImpl implements Chapitre_formatchapitreDa
  
 	public void saveChapitre_formatchapitre(Chapitre_formatchapitre chapitre_formatchapitre) {
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		session.save(chapitre_formatchapitre);
-		session.getTransaction().commit();
-		session.close();	
+		try
+		{
+			session.beginTransaction();
+			session.save(chapitre_formatchapitre);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 	}
  
 	public void updateChapitre_formatchapitre(Chapitre_formatchapitre chapitre_formatchapitre) {
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		session.update(chapitre_formatchapitre);
-		session.getTransaction().commit();
-		session.close();
-		
+		try
+		{
+			session.beginTransaction();
+			session.update(chapitre_formatchapitre);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}	
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -55,10 +72,19 @@ public class Chapitre_formatchapitreDaoImpl implements Chapitre_formatchapitreDa
  
 	public void deleteChapitre_formatchapitre(int id) {
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		Chapitre_formatchapitre chapitre_formatchapitre = (Chapitre_formatchapitre)session.get(Chapitre_formatchapitre.class, new Integer(id));
-		session.delete(chapitre_formatchapitre);
-		session.getTransaction().commit();
-		session.close();
+		Chapitre_formatchapitre chapitre_formatchapitre = (Chapitre_formatchapitre)session.get(Chapitre_formatchapitre.class, new Integer(id));	
+		try
+		{
+			session.beginTransaction();
+			session.delete(chapitre_formatchapitre);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}	
 	}
 }

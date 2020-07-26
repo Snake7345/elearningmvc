@@ -74,11 +74,12 @@ public class RoleDaoImpl implements RoleDao
  
 	public void deleteRole(int id) {
 		Session session = this.sessionFactory.openSession();
-		Role role = (Role)session.get(Role.class, new Integer(id));
+		
 		
 		try
 		{
 			session.beginTransaction();
+			Role role = (Role)session.get(Role.class, new Integer(id));
 			session.delete(role);
 			session.getTransaction().commit();
 		}

@@ -25,9 +25,9 @@ public class Localite implements Serializable
 	private int CP;
 	@Column(name="ville")
 	private String ville;
-	//bi-directional many-to-one association to Utilisateur
+	/*//bi-directional many-to-one association to Utilisateur
 	@OneToMany(mappedBy="localite")
-	private List<Utilisateur> utilisateurs;
+	private List<Utilisateur> utilisateurs;*/
 
 	@Override
 	public String toString() {
@@ -59,7 +59,7 @@ public class Localite implements Serializable
 		this.ville = ville;
 	}
 	
-	public List<Utilisateur> getUtilisateurs() {
+	/*public List<Utilisateur> getUtilisateurs() {
 		return this.utilisateurs;
 	}
 
@@ -80,7 +80,7 @@ public class Localite implements Serializable
 		utilisateur.setLocalite(null);
 
 		return utilisateur;
-	}
+	}*/
 
 
 

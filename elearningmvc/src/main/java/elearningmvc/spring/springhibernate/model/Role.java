@@ -25,8 +25,8 @@ public class Role implements Serializable
 	private String denomination;
 
 	//bi-directional many-to-one association to Utilisateur
-	@OneToMany(mappedBy="role")
-	private List<Utilisateur> utilisateurs;
+	/*@OneToMany(mappedBy="role")
+	private List<Utilisateur> utilisateurs;*/
 
 	
 	@Override
@@ -55,7 +55,7 @@ public class Role implements Serializable
 		this.denomination = denomination;
 	}
 
-	public List<Utilisateur> getUtilisateurs() {
+	/*public List<Utilisateur> getUtilisateurs() {
 		return this.utilisateurs;
 	}
 
@@ -75,7 +75,7 @@ public class Role implements Serializable
 		utilisateur.setRole(null);
 
 		return utilisateur;
-	}
+	}*/
 
 
 }

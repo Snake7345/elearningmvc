@@ -77,10 +77,11 @@ public class LocaliteDaoImpl implements LocaliteDao
 	public void deleteLocalite(int id) 
 	{
 		Session session = this.sessionFactory.openSession();
-		Localite localite = (Localite)session.get(Localite.class, new Integer(id));
+		
 		try 
 		{
 			session.beginTransaction();
+			Localite localite = (Localite)session.get(Localite.class, new Integer(id));
 			session.delete(localite);
 			session.getTransaction().commit();
 		}

@@ -146,6 +146,22 @@ public class Utilisateur implements Serializable {
 	public void setProfession(String profession) {
 		this.profession = profession;
 	}
+	
+	public Localite getLocalite() {
+		return this.localite;
+	}
+
+	public void setLocalite(Localite localite) {
+		this.localite = localite;
+	}
+
+	public Role getRole() {
+		return this.role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
 	/*
 	public List<Chapitreappris> getChapitreappris() {
 		return this.chapitreappris;
@@ -191,21 +207,7 @@ public class Utilisateur implements Serializable {
 		return invitation;
 	}*/
 
-	public Localite getLocalite() {
-		return this.localite;
-	}
 
-	public void setLocalite(Localite localite) {
-		this.localite = localite;
-	}
-
-	public Role getRole() {
-		return this.role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
-	}
 
 
 }

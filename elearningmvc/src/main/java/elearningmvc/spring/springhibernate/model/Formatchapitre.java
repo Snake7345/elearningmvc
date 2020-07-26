@@ -24,15 +24,15 @@ public class Formatchapitre implements Serializable {
 	@Column(name="typeFormat")
 	private String typeFormat;
 
-	//bi-directional many-to-one association to ChapitreFormatchapitre
+	/*//bi-directional many-to-one association to ChapitreFormatchapitre
 	@OneToMany(mappedBy="formatchapitre")
 	private List<Chapitre_formatchapitre> chapitreFormatchapitres;
-	
+	*/
 
 	@Override
 	public String toString() {
 		return "Formatchapitre [idFormatChapitre=" + idFormatChapitre + ", typeFormat=" + typeFormat
-				+ ", chapitreFormatchapitres=" + chapitreFormatchapitres + "]";
+				 + "]";
 	}
 	
 	/**************************Getter & Setter*******************************************/
@@ -53,7 +53,7 @@ public class Formatchapitre implements Serializable {
 		this.typeFormat = typeFormat;
 	}
 
-	public List<Chapitre_formatchapitre> getChapitreFormatchapitres() {
+	/*public List<Chapitre_formatchapitre> getChapitreFormatchapitres() {
 		return chapitreFormatchapitres;
 	}
 
@@ -74,6 +74,6 @@ public class Formatchapitre implements Serializable {
 		chapitreFormatchapitre.setFormatchapitre(null);
 
 		return chapitreFormatchapitre;
-	}
+	}*/
 
 }

@@ -22,18 +22,36 @@ public class InvitationDaoImpl implements InvitationDao
  
 	public void saveInvitation(Invitation invitation) {
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		session.save(invitation);
-		session.getTransaction().commit();
-		session.close();	
+		try
+		{
+			session.beginTransaction();
+			session.save(invitation);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 	}
  
 	public void updateInvitation(Invitation invitation) {
-		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		session.update(invitation);
-		session.getTransaction().commit();
-		session.close();
+		Session session = this.sessionFactory.openSession();	
+		try
+		{
+			session.beginTransaction();
+			session.update(invitation);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 		
 	}
  
@@ -56,10 +74,19 @@ public class InvitationDaoImpl implements InvitationDao
  
 	public void deleteInvitation(int id) {
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
 		Invitation invitation = (Invitation)session.get(Invitation.class, new Integer(id));
-		session.delete(invitation);
-		session.getTransaction().commit();
-		session.close();
+		try
+		{
+			session.beginTransaction();
+			session.delete(invitation);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 	}
 }

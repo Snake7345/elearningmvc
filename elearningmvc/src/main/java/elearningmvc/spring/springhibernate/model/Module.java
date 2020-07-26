@@ -26,13 +26,13 @@ public class Module implements Serializable {
 	@Column(name="idChapitreAppris")
 	private String intitule;
 
-	//bi-directional many-to-one association to Chapitre
+	/*//bi-directional many-to-one association to Chapitre
 	@OneToMany(mappedBy="module")
 	private List<Chapitre> chapitres;
 
 	//bi-directional many-to-one association to Invitation
 	@OneToMany(mappedBy="module")
-	private List<Invitation> invitations;
+	private List<Invitation> invitations;*/
 
 	//bi-directional many-to-one association to Categoriemodule
 	@ManyToOne
@@ -40,8 +40,7 @@ public class Module implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Module [idModule=" + idModule + ", actif=" + actif + ", intitule=" + intitule + ", chapitres="
-				+ chapitres + ", invitations=" + invitations + ", categoriemodule=" + categoriemodule + "]";
+		return "Module [idModule=" + idModule + ", actif=" + actif + ", intitule=" + intitule + ", categoriemodule=" + categoriemodule + "]";
 	}
 	
 	/**************************Getter & Setter*******************************************/
@@ -69,8 +68,16 @@ public class Module implements Serializable {
 	public void setIntitule(String intitule) {
 		this.intitule = intitule;
 	}
+	
+	public Categoriemodule getCategoriemodule() {
+		return this.categoriemodule;
+	}
 
-	public List<Chapitre> getChapitres() {
+	public void setCategoriemodule(Categoriemodule categoriemodule) {
+		this.categoriemodule = categoriemodule;
+	}
+
+	/*public List<Chapitre> getChapitres() {
 		return this.chapitres;
 	}
 
@@ -90,9 +97,9 @@ public class Module implements Serializable {
 		chapitre.setModule(null);
 
 		return chapitre;
-	}
+	}*/
 
-	public List<Invitation> getInvitations() {
+	/*public List<Invitation> getInvitations() {
 		return this.invitations;
 	}
 
@@ -112,15 +119,9 @@ public class Module implements Serializable {
 		invitation.setModule(null);
 
 		return invitation;
-	}
+	}*/
 
-	public Categoriemodule getCategoriemodule() {
-		return this.categoriemodule;
-	}
 
-	public void setCategoriemodule(Categoriemodule categoriemodule) {
-		this.categoriemodule = categoriemodule;
-	}
 
 
 

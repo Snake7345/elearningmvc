@@ -22,18 +22,36 @@ public class CategoriemoduleDaoImpl implements CategoriemoduleDao
  
 	public void saveCategoriemodule(Categoriemodule categoriemodule) {
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		session.save(categoriemodule);
-		session.getTransaction().commit();
-		session.close();	
+		try
+		{
+			session.beginTransaction();
+			session.save(categoriemodule);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}	
 	}
  
 	public void updateCategoriemodule(Categoriemodule categoriemodule) {
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		session.update(categoriemodule);
-		session.getTransaction().commit();
-		session.close();
+		try
+		{
+			session.beginTransaction();
+			session.update(categoriemodule);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}	
 		
 	}
  
@@ -56,10 +74,19 @@ public class CategoriemoduleDaoImpl implements CategoriemoduleDao
  
 	public void deleteCategoriemodule(int id) {
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
 		Categoriemodule categoriemodule = (Categoriemodule)session.get(Categoriemodule.class, new Integer(id));
-		session.delete(categoriemodule);
-		session.getTransaction().commit();
-		session.close();
+		try
+		{
+			session.beginTransaction();
+			session.delete(categoriemodule);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}	
 	}
 }

@@ -21,20 +21,37 @@ public class ChapitreapprisDaoImpl
 	}
  
 	public void saveChapitreappris(Chapitreappris chapitreappris) {
-		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		session.save(chapitreappris);
-		session.getTransaction().commit();
-		session.close();	
+		Session session = this.sessionFactory.openSession();		
+		try
+		{
+			session.beginTransaction();
+			session.save(chapitreappris);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 	}
  
 	public void updateChapitreappris(Chapitreappris chapitreappris) {
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		session.update(chapitreappris);
-		session.getTransaction().commit();
-		session.close();
-		
+		try
+		{
+			session.beginTransaction();
+			session.update(chapitreappris);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 	}
  
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -56,10 +73,19 @@ public class ChapitreapprisDaoImpl
  
 	public void deleteChapitreappris(int id) {
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		Chapitreappris chapitreappris = (Chapitreappris)session.get(Chapitreappris.class, new Integer(id));
-		session.delete(chapitreappris);
-		session.getTransaction().commit();
-		session.close();
+		Chapitreappris chapitreappris = (Chapitreappris)session.get(Chapitreappris.class, new Integer(id));		
+		try
+		{
+			session.beginTransaction();
+			session.delete(chapitreappris);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 	}
 }

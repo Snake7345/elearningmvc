@@ -74,11 +74,12 @@ public class UtilisateurDaoImpl implements UtilisateurDao
  
 	public void deleteUtilisateur(int id) {
 		Session session = this.sessionFactory.openSession();
-		Utilisateur utilisateur = (Utilisateur)session.get(Utilisateur.class, new Integer(id));
+		
 		
 		try
 		{
 			session.beginTransaction();
+			Utilisateur utilisateur = (Utilisateur)session.get(Utilisateur.class, new Integer(id));
 			session.delete(utilisateur);
 			session.getTransaction().commit();
 		}

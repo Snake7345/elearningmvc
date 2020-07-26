@@ -22,19 +22,36 @@ public class FormatchapitreDaoImpl implements FormatchapitreDao
  
 	public void saveFormatchapitre(Formatchapitre formatchapitre) {
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		session.save(formatchapitre);
-		session.getTransaction().commit();
-		session.close();	
+		try
+		{
+			session.beginTransaction();
+			session.save(formatchapitre);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 	}
  
 	public void updateFormatchapitre(Formatchapitre formatchapitre) {
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		session.update(formatchapitre);
-		session.getTransaction().commit();
-		session.close();
-		
+		try
+		{
+			session.beginTransaction();
+			session.update(formatchapitre);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })

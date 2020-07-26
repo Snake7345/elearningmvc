@@ -20,21 +20,39 @@ public class ModuleDaoImpl implements ModuleDao
 		this.sessionFactory = sessionFactory;
 	}
  
-	public void saveModule (Module module) {
+	public void saveModule (Module module) 
+	{
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		session.save(module);
-		session.getTransaction().commit();
-		session.close();	
+		try
+		{
+			session.beginTransaction();
+			session.save(module);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 	}
  
 	public void updateModule (Module module) {
-		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		session.update(module);
-		session.getTransaction().commit();
-		session.close();
-		
+		Session session = this.sessionFactory.openSession();	
+		try
+		{
+			session.beginTransaction();
+			session.update(module);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 	}
  
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -54,12 +72,23 @@ public class ModuleDaoImpl implements ModuleDao
 		return module;
 	}
  
-	public void deleteModule(int id) {
+	public void deleteModule(int id) 
+	{
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		Module module = (Module)session.get(Module.class, new Integer(id));
-		session.delete(module);
-		session.getTransaction().commit();
-		session.close();
+		
+		try
+		{
+			session.beginTransaction();
+			Module module = (Module)session.get(Module.class, new Integer(id));
+			session.delete(module);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			if(session.getTransaction().isActive())
+				session.getTransaction().rollback();
+			session.clear();
+			session.close();
+		}
 	}
 }

@@ -35,21 +35,20 @@ public class Chapitre implements Serializable
 	@ManyToOne
 	private Module module;
 
-	//bi-directional many-to-one association to ChapitreFormatchapitre
+	/*//bi-directional many-to-one association to ChapitreFormatchapitre
 	@OneToMany(mappedBy="chapitre")
 	private List<Chapitre_formatchapitre> chapitreFormatchapitres;
 
 	//bi-directional many-to-one association to Chapitreappri
 	@OneToMany(mappedBy="chapitre")
-	private List<Chapitreappris> chapitreappris;
+	private List<Chapitreappris> chapitreappris;*/
 
 	
 	
 	@Override
 	public String toString() {
 		return "Chapitre [idChapitre=" + idChapitre + ", cotation=" + cotation + ", emplacement=" + emplacement
-				+ ", intitule=" + intitule + ", quizz=" + quizz + ", module=" + module + ", chapitreFormatchapitres="
-				+ chapitreFormatchapitres + ", chapitreappris=" + chapitreappris + "]";
+				+ ", intitule=" + intitule + ", quizz=" + quizz + ", module=" + module + "]";
 	}
 
 	/**************************Getter & Setter*******************************************/
@@ -103,7 +102,7 @@ public class Chapitre implements Serializable
 		this.module = module;
 	}
 
-	public List<Chapitre_formatchapitre> getChapitreFormatchapitres() {
+	/*public List<Chapitre_formatchapitre> getChapitreFormatchapitres() {
 		return chapitreFormatchapitres;
 	}
 
@@ -132,7 +131,7 @@ public class Chapitre implements Serializable
 		chapitreappris.setChapitre(null);
 
 		return chapitreappris;
-	}
+	}*/
 
 
 }
