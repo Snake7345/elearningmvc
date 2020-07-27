@@ -9,15 +9,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import elearningmvc.spring.springhibernate.model.Chapitre;
+import elearningmvc.spring.springhibernate.model.Module;
 import elearningmvc.spring.springhibernate.service.ChapitreService;
+import elearningmvc.spring.springhibernate.service.ModuleService;
 
 
-//@Controller
+@Controller
 public class ChapitreController 
 {
-	/*
+	
 	ChapitreService chapitreService;
+	ModuleService moduleService;
 	 
+	public ModuleService getModuleService() {
+		return moduleService;
+	}
+
 	public ChapitreService getChapitreService() 
 	{
 		return chapitreService;
@@ -28,17 +35,25 @@ public class ChapitreController
 		this.chapitreService = chapitreService;
 	}
 	
+	@Autowired
+	public void setModuleService(ModuleService moduleService) {
+		this.moduleService = moduleService;
+	}
+	
 
 	@RequestMapping(value = "/chapitre", method = RequestMethod.GET)
 	public String getAllChapitre(Model model) {
 		model.addAttribute("chapitre", new Chapitre());
-		model.addAttribute("chapitreList",
-		this.chapitreService.getAllChapitre());
+		model.addAttribute("chapitreList",this.chapitreService.getAllChapitre());
+		model.addAttribute("module", new Module());
+		model.addAttribute("moduleList", this.moduleService.getAllModule());
 		return "chapitre";
 	}
  
 	@RequestMapping(value = "/chapitre/add", method = RequestMethod.POST)
-	public String addChapitre(@ModelAttribute("chapitre") Chapitre chapitre) {
+	public String addChapitre(@ModelAttribute("chapitre") Chapitre chapitre) 
+	{
+		chapitre.setModule(moduleService.getById(chapitre.getModule().getIdModule()));
 		this.chapitreService.saveChapitre(chapitre);
 		return "redirect:/chapitre";
 	}
@@ -60,5 +75,5 @@ public class ChapitreController
 		model.addAttribute("chapitre", this.chapitreService.getById(id));
 		return "editChapitre";
 	}
-	*/
+	
 }

@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import elearningmvc.spring.springhibernate.model.Formatchapitre;
 import elearningmvc.spring.springhibernate.service.FormatchapitreService;
 
-//@Controller
+@Controller
 public class FormatchapitreController 
 {
-	/*
 	FormatchapitreService formatchapitreService;
 	 
 	public FormatchapitreService getFormatchapitreService() 
@@ -51,7 +50,7 @@ public class FormatchapitreController
 	@RequestMapping(value = "/deleteFormatchapitre/{id}")
 	public String removeChapitre_formatchapitre(@PathVariable("id") int id) {
 		this.formatchapitreService.deleteFormatchapitre(id);
-		return "redirect:/chapitre";
+		return "redirect:/formatchapitre";
 	}
  
 	@RequestMapping(value = "/editFormatchapitre/{id}")
@@ -59,5 +58,4 @@ public class FormatchapitreController
 		model.addAttribute("formatchapitre", this.formatchapitreService.getById(id));
 		return "editFormatchapitre";
 	}
-	*/
 }

@@ -20,8 +20,6 @@ public class Chapitreappris implements Serializable
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="idChapitreAppris")
 	private int idChapitreAppris;
-	@Column(name="chapitreappris")
-	private boolean chapitreAppris;
 
 	//bi-directional many-to-one association to Chapitre
 	@ManyToOne
@@ -33,8 +31,7 @@ public class Chapitreappris implements Serializable
 
 	@Override
 	public String toString() {
-		return "Chapitreappris [idChapitreAppris=" + idChapitreAppris + ", chapitreAppris=" + chapitreAppris
-				+ ", chapitre=" + chapitre + ", utilisateur=" + utilisateur + "]";
+		return "Chapitreappris [idChapitreAppris=" + idChapitreAppris + ", chapitre=" + chapitre + ", utilisateur=" + utilisateur + "]";
 	}
 
 	
@@ -49,13 +46,6 @@ public class Chapitreappris implements Serializable
 		this.idChapitreAppris = idChapitreAppris;
 	}
 
-	public boolean isChapitreAppris() {
-		return chapitreAppris;
-	}
-
-	public void setChapitreAppris(boolean chapitreAppris) {
-		this.chapitreAppris = chapitreAppris;
-	}
 
 	public Chapitre getChapitre() {
 		return chapitre;

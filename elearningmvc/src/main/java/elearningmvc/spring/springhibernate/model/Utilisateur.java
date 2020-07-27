@@ -1,14 +1,12 @@
 package elearningmvc.spring.springhibernate.model;
 
 import java.io.Serializable;
-import java.util.List;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,23 +17,23 @@ public class Utilisateur implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idUtilisateur;
-
+	@Column(name="actif")
 	private boolean actif;
-
+	@Column(name="adresse")
 	private String adresse;
-
+	@Column(name="email")
 	private String email;
-
+	@Column(name="login")
 	private String login;
-
+	@Column(name="mobile")
 	private String mobile;
-
+	@Column(name="nom")
 	private String nom;
-
+	@Column(name="password")
 	private String password;
-
+	@Column(name="prenom")
 	private String prenom;
-
+	@Column(name="profession")
 	private String profession;
 
 	//bi-directional many-to-one association to Chapitreappri

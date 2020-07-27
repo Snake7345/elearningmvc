@@ -1,14 +1,11 @@
 package elearningmvc.spring.springhibernate.model;
 
 import java.io.Serializable;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,20 +16,19 @@ public class Categoriemodule implements Serializable
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="ipCatModule")
+	@Column(name="idCatModule")
 	private int idCatModule;
 	@Column(name="denomination")
 	private String denomination;
 
-	//bi-directional many-to-one association to Module
+	/*//bi-directional many-to-one association to Module
 	@OneToMany(mappedBy="categoriemodule")
-	private List<Module> modules;
+	private List<Module> modules;*/
 	
 	
 	@Override
 	public String toString() {
-		return "Categoriemodule [idCatModule=" + idCatModule + ", denomination=" + denomination + ", modules=" + modules
-				+ "]";
+		return "Categoriemodule [idCatModule=" + idCatModule + ", denomination=" + denomination + "]";
 	}
 
 	/**************************Getter & Setter*******************************************/
@@ -52,7 +48,7 @@ public class Categoriemodule implements Serializable
 		this.denomination = denomination;
 	}
 
-	public List<Module> getModules() {
+	/*public List<Module> getModules() {
 		return this.modules;
 	}
 
@@ -72,6 +68,6 @@ public class Categoriemodule implements Serializable
 		module.setCategoriemodule(null);
 
 		return module;
-	}
+	}*/
 
 }

@@ -1,15 +1,12 @@
 package elearningmvc.spring.springhibernate.model;
 
 import java.io.Serializable;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,11 +16,11 @@ public class Module implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="idChapitreAppris")
+	@Column(name="idModule")
 	private int idModule;
-	@Column(name="idChapitreAppris")
+	@Column(name="actif")
 	private boolean actif;
-	@Column(name="idChapitreAppris")
+	@Column(name="intitule")
 	private String intitule;
 
 	/*//bi-directional many-to-one association to Chapitre

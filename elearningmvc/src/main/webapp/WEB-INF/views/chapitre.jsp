@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,51 +12,53 @@
 <body>
  
 <c:url var="addChapitre" value="/chapitre/add" ></c:url>
-<form:form action="${addChapitre}" modelAttribute="chapitre">
+<sf:form action="${addChapitre}" modelAttribute="chapitre">
 <table>
 			<tr>
-			<td><form:label path="intitule">
+			<td><sf:label path="intitule">
 						<spring:message text="intitule" />
-					</form:label></td>
+					</sf:label></td>
 					<td>
-			<form:input path="intitule"  type="text"/></td>
+			<sf:input path="intitule"  type="text"/></td>
 			
 			</tr>
 			
 			<tr>
-			<td><form:label path="cotation">
+			<td><sf:label path="cotation">
 						<spring:message text="cotation" />
-					</form:label></td>
+					</sf:label></td>
 					<td>
-			<form:input path="cotation" type="text"/></td>
+			<sf:input path="cotation" type="text"/></td>
 			<td>
 			</tr>
 			
 			<tr>
-			<td><form:label path="quizz">
+			<td><sf:label path="quizz">
 						<spring:message text="quizz" />
-					</form:label></td>
+					</sf:label></td>
 					<td>
-			<form:input path="quizz" type="text"/></td>
+			<sf:input path="quizz" type="text"/></td>
 			<td>
 			</tr>
 			
 			<tr>
-			<td><form:label path="emplacement">
+			<td><sf:label path="emplacement">
 						<spring:message text="emplacement" />
-					</form:label></td>
+					</sf:label></td>
 					<td>
-			<form:input path="emplacement" type="text"/></td>
+			<sf:input path="emplacement" type="text"/></td>
 			<td>
 			</tr>
 			
 			<tr>
-			<td><form:label path="module.intitule">
-						<spring:message text="module.intitule" />
-					</form:label></td>
-					<td>
-			<form:input path="module.intitule" type="text"/></td>
 			<td>
+			<sf:label path="module.intitule"><spring:message text="module.intitule" />
+					</sf:label>
+			</td>
+			<td>
+			<sf:select path="module.idModule" items="${moduleList}" itemLabel="intitule" itemValue="idModule">
+			</sf:select>
+			</td>
 			</tr>
 			
 			<tr>
@@ -92,7 +94,7 @@
 			</c:forEach>
 		</c:if>
 		</table>
-</form:form>
+</sf:form>
  
  
 </body>

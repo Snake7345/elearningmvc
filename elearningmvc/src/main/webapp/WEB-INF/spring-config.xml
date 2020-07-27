@@ -34,6 +34,12 @@
 				<beans:value>elearningmvc.spring.springhibernate.model.Localite</beans:value>
 				<beans:value>elearningmvc.spring.springhibernate.model.Utilisateur</beans:value>
 				<beans:value>elearningmvc.spring.springhibernate.model.Role</beans:value>
+				<beans:value>elearningmvc.spring.springhibernate.model.Categoriemodule</beans:value>
+				<beans:value>elearningmvc.spring.springhibernate.model.Chapitre</beans:value>
+				<beans:value>elearningmvc.spring.springhibernate.model.Module</beans:value>
+				<!--<beans:value>elearningmvc.spring.springhibernate.model.Chapitreappris</beans:value>-->
+				<beans:value>elearningmvc.spring.springhibernate.model.Formatchapitre</beans:value>
+				<!--<beans:value>elearningmvc.spring.springhibernate.model.Invitation</beans:value>  -->
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">
@@ -72,6 +78,54 @@
 	<beans:property name="roleDao" ref="roleDao"/>
 </beans:bean>
 
+<beans:bean id="categoriemoduleDao" class="elearningmvc.spring.springhibernate.dao.CategoriemoduleDaoImpl">
+	<beans:property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory"/>
+</beans:bean>
+ 
+<beans:bean id="categoriemoduleService" class="elearningmvc.spring.springhibernate.service.CategoriemoduleServiceImpl">
+	<beans:property name="categoriemoduleDao" ref="categoriemoduleDao"/>
+</beans:bean>
+
+<beans:bean id="chapitreDao" class="elearningmvc.spring.springhibernate.dao.ChapitreDaoImpl">
+	<beans:property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory"/>
+</beans:bean>
+ 
+<beans:bean id="chapitreService" class="elearningmvc.spring.springhibernate.service.ChapitreServiceImpl">
+	<beans:property name="chapitreDao" ref="chapitreDao"/>
+</beans:bean>
+ 
+<beans:bean id="moduleDao" class="elearningmvc.spring.springhibernate.dao.ModuleDaoImpl">
+	<beans:property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory"/>
+</beans:bean>
+ 
+<beans:bean id="moduleService" class="elearningmvc.spring.springhibernate.service.ModuleServiceImpl">
+	<beans:property name="moduleDao" ref="moduleDao"/>
+</beans:bean>
+
+<beans:bean id="formatchapitreDao" class="elearningmvc.spring.springhibernate.dao.FormatchapitreDaoImpl">
+	<beans:property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory"/>
+</beans:bean>
+ 
+<beans:bean id="formatchapitreService" class="elearningmvc.spring.springhibernate.service.FormatchapitreServiceImpl">
+	<beans:property name="formatchapitreDao" ref="formatchapitreDao"/>
+</beans:bean>
+<!-- 
+<beans:bean id="invitationDao" class="elearningmvc.spring.springhibernate.dao.InvitationDaoImpl">
+	<beans:property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory"/>
+</beans:bean>
+ 
+<beans:bean id="invitationService" class="elearningmvc.spring.springhibernate.service.InvitationServiceImpl">
+	<beans:property name="invitationDao" ref="invitationDao"/>
+</beans:bean>
+
+<beans:bean id="chapitreapprisDao" class="elearningmvc.spring.springhibernate.dao.ChapitreapprisDaoImpl">
+	<beans:property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory"/>
+</beans:bean>
+ 
+<beans:bean id="chapitreapprisService" class="elearningmvc.spring.springhibernate.service.ChapitreapprisServiceImpl">
+	<beans:property name="chapitreapprisDao" ref="chapitreapprisDao"/>
+</beans:bean>
+-->
 <tx:annotation-driven transaction-manager="transactionManager"/>
  
 <beans:bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
