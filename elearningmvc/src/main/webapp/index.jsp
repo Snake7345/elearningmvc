@@ -1,4 +1,5 @@
 <html>
+<jsp:include page="WEB-INF/Templates/header.jsp"></jsp:include>
 <body>
 <h2>Bienvenue sur ce site d'elearning</h2>
 <a href="http://localhost:8080/elearningmvc/utilisateur">Utilisateur</a>
@@ -9,4 +10,5 @@
 <a href="http://localhost:8080/elearningmvc/formatchapitre">Formatchapitre</a>
 
 </body>
+<jsp:include page="WEB-INF/Templates/footer.jsp"></jsp:include>
 </html>

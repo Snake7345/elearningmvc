@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Localite edit</title>
+<jsp:include page="../Templates/header.jsp"></jsp:include>
 </head>
 <body>
 <c:url var="updateLocalite" value='/localite/update' />
@@ -50,4 +51,5 @@
 		</table>
 		</form:form>
 </body>
+<jsp:include page="../Templates/footer.jsp"></jsp:include>
 </html>

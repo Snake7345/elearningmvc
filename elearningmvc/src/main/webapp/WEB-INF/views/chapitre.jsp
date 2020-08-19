@@ -9,6 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Chapitre Page</title>
 </head>
+<jsp:include page="../Templates/header.jsp"></jsp:include>
 <body>
  
 <c:url var="addChapitre" value="/chapitre/add" ></c:url>
@@ -98,4 +99,5 @@
  
  
 </body>
+<jsp:include page="../Templates/footer.jsp"></jsp:include>
 </html>

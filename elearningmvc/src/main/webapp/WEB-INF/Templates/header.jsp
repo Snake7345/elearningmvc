@@ -11,9 +11,6 @@
 	<div>
     <h3>Site E-learning</h3>
     </div>
-    <div>
-    <%@ include file="index.jsp" %>
-    </div>
     
 </header>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">

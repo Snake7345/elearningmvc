@@ -9,6 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Chapitre edit</title>
 </head>
+<jsp:include page="../Templates/header.jsp"></jsp:include>
 <body>
 <c:url var="updateChapitre" value='/chapitre/update' />
 <form:form action="${updateChapitre}" modelAttribute="chapitre">
@@ -68,4 +69,5 @@
 		</table>
 		</form:form>
 </body>
+<jsp:include page="../Templates/footer.jsp"></jsp:include>
 </html>

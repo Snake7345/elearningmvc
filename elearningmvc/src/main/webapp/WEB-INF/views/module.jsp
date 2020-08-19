@@ -9,6 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Employee Page</title>
 </head>
+<jsp:include page="../Templates/header.jsp"></jsp:include>
 <body>
  
 <c:url var="addModule" value="/modulee/add" ></c:url>
@@ -75,4 +76,5 @@
  
  
 </body>
+<jsp:include page="../Templates/footer.jsp"></jsp:include>
 </html>

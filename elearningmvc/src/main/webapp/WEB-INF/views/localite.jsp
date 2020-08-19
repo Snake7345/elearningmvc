@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Employee Page</title>
+<jsp:include page="../Templates/header.jsp"></jsp:include>
 </head>
 <body>
  
@@ -64,4 +65,5 @@
  
  
 </body>
+<jsp:include page="../Templates/footer.jsp"></jsp:include>
 </html>
