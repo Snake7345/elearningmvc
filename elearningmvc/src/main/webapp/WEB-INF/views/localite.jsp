@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,23 +12,23 @@
 <body>
  
 <c:url var="addLocalite" value="/localite/add" ></c:url>
-<form:form action="${addLocalite}" modelAttribute="localite">
+<sf:form action="${addLocalite}" modelAttribute="localite">
 <table>
 			<tr>
-			<td><form:label path="ville">
+			<td><sf:label path="ville">
 						<spring:message text="ville" />
-					</form:label></td>
+					</sf:label></td>
 					<td>
-			<form:input path="ville"  type="text"/></td>
+			<sf:input path="ville"  type="text"/></td>
 			
 			</tr>
 			
 			<tr>
-			<td><form:label path="CP">
+			<td><sf:label path="CP">
 						<spring:message text="CP" />
-					</form:label></td>
+					</sf:label></td>
 					<td>
-			<form:input path="CP" type="text"/></td>
+			<sf:input path="CP" type="text"/></td>
 			<td>
 			</tr>
 			
@@ -60,7 +60,7 @@
 			</c:forEach>
 		</c:if>
 		</table>
-</form:form>
+</sf:form>
  
  
 </body>

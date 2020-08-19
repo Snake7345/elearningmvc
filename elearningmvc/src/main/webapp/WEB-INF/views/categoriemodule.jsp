@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,14 +12,14 @@
 <body>
  
 <c:url var="addCategoriemodule" value="/categoriemodule/add" ></c:url>
-<form:form action="${addCategoriemodule}" modelAttribute="categoriemodule">
+<sf:form action="${addCategoriemodule}" modelAttribute="categoriemodule">
 <table>
 			<tr>
-			<td><form:label path="denomination">
+			<td><sf:label path="denomination">
 						<spring:message text="denomination" />
-					</form:label></td>
+					</sf:label></td>
 					<td>
-			<form:input path="denomination"  type="text"/></td>
+			<sf:input path="denomination"  type="text"/></td>
 			
 			</tr>
 			<tr>
@@ -48,7 +48,7 @@
 			</c:forEach>
 		</c:if>
 		</table>
-</form:form>
+</sf:form>
  
  
 </body>
